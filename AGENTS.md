@@ -1,21 +1,50 @@
 # AGENTS.md — Bandung Sport
 
-> Untuk SEMUA AI agent (Amp, Claude Code, Codex, Cursor, dsb): ini adalah proyek
-> pribadi pemilik repo. Baca file ini sebelum bekerja. Sumber kebenaran rencana:
-> `plan.md` di folder ini.
+> Untuk SEMUA AI agent (Amp, Claude Code, Codex, Cursor, Copilot, dsb): ini
+> adalah proyek pribadi pemilik repo. Baca file ini sebelum bekerja.
+>
+> **SUMBER KEBENARAN SEKARANG (2026-10-17): `docs/plan-v3-delta.md`**
+> (urutan kerja + checklist sesi + kontrak API/URL + instruksi tool AI § 7),
+> di atas `docs/plan-v2.md` (visi, model data § 6, arsitektur FE § 7, ritual
+> § 10). `plan.md` tinggal § Status (progres per sesi) dan catatan sejarah.
+> Kalau bertentangan: plan-v3-delta > plan-v2 > plan.md > bagian "Progres"
+> lama di file ini.
+>
+> **Mulai sesi:** baca `plan.md` § Status → kerjakan checkbox pertama yang
+> kosong di `docs/plan-v3-delta.md` § 2 → ikuti instruksi § 7 di sana.
 
 ## Apa ini
 
-**Bandung Sport** — web app direktori tempat olahraga di Bandung dengan filter
-budget (gratis s/d mahal): cari gym/futsal/yoga/dll, filter jenis olga + budget +
-area, lihat detail harga (termasuk estimasi biaya jika ambil PT), fasilitas, kontak.
+**Bandung Sport** — pemandu olahraga Bandung: "olahraga apa, di mana, bareng
+siapa, berapa duit". Data Tempat + Penawaran (paket/sewa dengan harga nyata),
+dilihat lewat mode: Sendiri (Hitung Biaya) dan Bareng (Patungan) dulu; mode
+lain menyusul kalau ada sinyal (lihat `docs/plan-v2.md` § 4).
 
-PENTING — ini BUKAN proyek kantor. Tujuan utamanya adalah **kendaraan belajar
-frontend** pemilik repo (backend Go engineer, pemula FE) selama ±5 bulan. Kualitas
-kodenya harus jujur dan realistis, tapi keputusan teknis harus bisa dijelaskan
-sebagai bahan belajar, bukan sekadar dikerjakan AI.
+PENTING — ini BUKAN proyek kantor. Dua tujuan sekaligus: (1) **kendaraan
+belajar frontend** pemilik repo (backend Go engineer 6 th, pemula FE) — kode
+yang dirender ditulis founder; (2) **bukti full-stack untuk cari kerja**
+(founder di-PHK 15 Okt 2026): FE React + BE Go live dalam ≤4 minggu. Waktu
+proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
 
-## Status (per 2026-09-24)
+## Arah v3 (sesi 2026-10-17) — BACA `docs/plan-v3-delta.md`
+
+- Board review final (5 peran) → 5 delta disepakati pemilik repo: BFF Go
+  dimajukan ke setelah data v2 (sesi 6–8, Go stdlib + go:embed, Vercel Go preset,
+  BE jadi satu-satunya sumber data); dua mode dikunci 3 bulan (Sendiri,
+  Bareng); concierge = side task bukan gate; hasil alat bantu = URL (slug +
+  `v=1`, tanpa harga) dengan CTA di halaman tujuan; kartu coming-soon di
+  bulan ke-2 (urutan diacak).
+- Struktur jadi 3 repo: root privat (docs), `fe/` publik
+  `jakskal/bandung-sport-web`, `be/` publik `jakskal/bandung-sport-api`
+  (belum dibuat; dibuat di sesi S6).
+- **Tugas berikutnya: S0 (concierge, 30 menit) lalu S1 (copy pass +
+  outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
+  **Update 2026-10-18:** S0 & S1 ditunda founder (S0 dilipat ke S15);
+  sesi aktif sekarang **S2 (Token CSS)**, sedang jalan (WIP).
+- `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
+  perubahan. Dokumen root belum di-commit.
+
+## Status lama (per 2026-09-24 s/d 2026-10-13) — sejarah, bukan instruksi
 
 - Rencana 5 bulan sudah final, ada di `plan.md`. Baca itu dulu.
 - Struktur folder: `fe/` (frontend) + `be/` (backend, menyusul di Bulan 2).
@@ -195,25 +224,36 @@ sebagai bahan belajar, bukan sekadar dikerjakan AI.
 
 ## Aturan kerja (WAJIB diikuti)
 
-1. **Jangan implementasikan semuanya untuk user.** AI dipakai sebagai TUTOR:
-   jelaskan konsep, beri latihan, review kode yang user tulis. Menulis seluruh
-   fitur untuk user mengalahkan tujuan proyek. Pengecualian: setup tooling awal
-   (Vite, formatter) boleh dibuatkan.
-2. **Scope v1 dikunci** (lihat `plan.md` § "Definisi v1"): list page + filter +
-   detail page, mobile-first, tanpa login/booking/peta, data dari JSON.
-   Tolak permintaan menambah scope sebelum v1 dipakai orang asli.
-3. Kalau user stuck >30 menit, jangan langsung kasih solusi — tanya dulu apa yang
-   sudah dicoba, baru beri petunjuk bertahap.
-4. Bahasa diskusi: Indonesia santai. Nama variabel/komentar kode: Inggris.
-5. Setiap sesi selesai, update bagian "Status" di `plan.md` jika ada progres
-   atau keputusan baru, supaya handoff antar-thread/agent selalu akurat.
+Versi lengkap dan terbaru: `docs/plan-v3-delta.md` § 7. Ringkasnya:
+
+1. **Jangan implementasikan semuanya untuk user.** AI = TUTOR: jelaskan
+   konsep, beri latihan, review kode yang user tulis. Boleh ditulis penuh
+   oleh AI: tooling (script migrasi/validasi, token CSS, config deploy,
+   Dockerfile, setup test, CORS middleware) dan **satu contoh** per pola.
+   Kode Go ditulis founder (keahliannya), AI review.
+2. **Scope dikunci** di `docs/plan-v3-delta.md` § 2 (sesi aktif) dan § 3
+   (daftar jangan-dibangun). Tolak penambahan fitur/mode/dependency/
+   endpoint di luar sesi yang ditunjuk; ide dicatat di `plan.md` § "Nanti".
+3. Kalau user stuck >30 menit, jangan langsung kasih solusi — tanya dulu apa
+   yang sudah dicoba, baru beri petunjuk bertahap.
+4. Bahasa diskusi: Indonesia santai. Teks UI: Indonesia. Nama variabel,
+   komentar, commit, README: Inggris.
+5. Jangan mengarang harga/jadwal/kontak/koordinat; tidak tahu = null.
+6. Setiap sesi selesai: lint/build/test hijau → commit + push repo terkait →
+   centang checkbox di `docs/plan-v3-delta.md` § 2 → update `plan.md`
+   § Status (3–6 baris), supaya handoff antar-thread/agent selalu akurat.
 
 ## Struktur folder
 
-- `plan.md` — rencana 5 bulan, scope v1, aturan main (SUMBER KEBENARAN).
+- `docs/plan-v3-delta.md` — **SUMBER KEBENARAN**: urutan sesi, kontrak API &
+  URL, template pesan, instruksi tool AI.
+- `docs/plan-v2.md` — visi, peta segmen, model data v2 (§ 6), arsitektur FE
+  (§ 7), ritual mingguan (§ 10). Urutan fase § 5/§ 8 **digantikan** v3.
+- `plan.md` — § Status (progres per sesi, wajib diupdate) + sejarah rencana.
 - `AGENTS.md` / `CLAUDE.md` — file ini (CLAUDE.md menunjuk ke sini).
-- `docs/` — dokumen pendukung per konteks (sketsa layout, dll), akan ikut
-  pindah ke repo private. Bukan sumber kebenaran; bahan kerja.
-- `app/` — tidak dipakai; diganti struktur `fe/` + `be/` (keputusan 2026-09-24).
-- `fe/` — frontend Vite + React (sudah di-setup, plus oxlint & Prettier).
-- `be/` — (disiapkan) BFF Go kecil, rencananya dibuat di Bulan 2.
+- `docs/` lainnya — sketsa layout, review board, spec wizard lama (arsip),
+  `docs/data/` (outreach.md, concierge.md — dibuat saat S0/S1).
+- `fe/` — repo publik `jakskal/bandung-sport-web`: Vite + React 19 (JS),
+  react-router v7, oxlint, Prettier.
+- `be/` — repo publik `jakskal/bandung-sport-api` (dibuat di S6): Go stdlib,
+  `go:embed` data JSON, deploy Vercel (preset Go). Satu-satunya sumber data setelah S9. FE juga di Vercel (preset Vite). Tanpa DB sampai trigger plan-v2 § 5.

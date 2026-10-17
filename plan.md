@@ -151,6 +151,39 @@ Keputusan kunci:
 - Belum ada yang di-commit/push dari sesi ini (docs di root bukan bagian
   repo `fe/`).
 
+## Status (2026-10-17) — SUMBER KEBENARAN SEKARANG: `docs/plan-v3-delta.md`
+
+> Tool AI: bagian ini yang kamu update tiap akhir sesi (3–6 baris).
+> Sesi aktif = checkbox pertama yang kosong di `docs/plan-v3-delta.md` § 2.
+
+- Konteks baru: pemilik repo di-PHK 15 Okt 2026, sedang cari kerja.
+  Proyek ini sekarang punya tujuan ganda: belajar FE + bukti full-stack
+  (FE React + BE Go live) dalam ≤4 minggu. Jatah proyek = setelah 75 menit
+  wajib lamaran + English per hari.
+- Board review final (5 peran, 2026-10-17) → plan-v3-delta disepakati:
+  BFF Go dimajukan ke sesi 6–8 (langsung setelah data v2), dua mode
+  dikunci 3 bulan (Sendiri, Bareng), concierge jadi side task bukan gate,
+  hasil alat bantu = URL tanpa harga + CTA di halaman tujuan, coming-soon
+  di bulan ke-2. Urutan malam plan-v2 § 8 digantikan checklist sesi v3 § 2.
+- Laptop baru: `fe/` di-clone ulang (HEAD `0e0faf2`, bersih). `be/` belum
+  ada. Docs root belum di-commit.
+- **Sesi berikutnya: S0** (concierge 5 orang, 30 menit, di luar sesi) lalu
+  **S1** (copy pass + outreach harga ke ≤10 venue) — detail di
+  `docs/plan-v3-delta.md` § 2 dan § 6.
+- **Sesi 2026-10-18 (dibuka lalu ditutup WIP):** founder menunda **S0**
+  (concierge — dilipat ke S15: kirim link live ke 5 teman) dan **S1**
+  (copy pass + outreach harga, masih utang). Beralih ke **S2 Token CSS**:
+  `fe/src/styles/tokens.css` (14 token per peran) ditulis AI + diimpor di
+  `main.jsx`; **belum** selesai. Sisa: hapus `:root` dari `index.css`,
+  ganti literal `#f0f0f0`/`#f9f9f9`/`#f7f7f7`/`#888`/`#007bff`/`white` →
+  `var()`, hapus `.modal*`. Commit WIP pushed (`fe@9d0f922`).
+  Utang kecil: titik koma hilang di `main.jsx:4`. Sesi berikutnya:
+  **lanjutkan S2**.
+
+## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
+
+- (kosong — tool AI: catat ide baru di sini, satu baris per ide)
+
 ## Aturan main (mencegah kegagalan yang lalu)
 
 1. **Jangan nunggu "ngerti dulu baru bikin"** — bikin dulu, yang nggak ngerti dicari pas macet.
