@@ -63,10 +63,12 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   "Harga belum dicek", empty state copy. Kirim ≤10 pesan tanya harga ke
   venue yang harganya null; catat di `docs/data/outreach.md`.
   *Selesai kalau:* tagline terbaca, lint+build hijau, ≥8 pesan terkirim.
-- [ ] **S2 — Token CSS** (A tulis file token; F terapkan). ±12 custom
+- [x] **S2 — Token CSS** (A tulis file token; F terapkan). ±12 custom
   property di `:root`, hapus `.modal*`, hex literal hanya di `:root`.
   *Selesai kalau:* `grep -rn '#[0-9a-fA-F]\{3,6\}' fe/src --include=*.css`
   hanya kena baris di `:root`.
+  _(Selesai 2026-10-18: 14 token di `fe/src/styles/tokens.css`; 0 hex &
+  0 keyword warna di luar `:root`, semua token terpakai, lint+build hijau.)_
 - [ ] **S3 — `src/lib/formatPrice.js`** (F; A tulis 6 kasus uji) signature
   v2: `formatPrice({ priceMin, priceMax, priceUnit, priceVisibility })`
   → "Rp500rb–2,5jt /bulan", "mulai Rp50rb /jam", "Harga via WA", "Harga

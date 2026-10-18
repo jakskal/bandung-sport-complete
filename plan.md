@@ -170,15 +170,14 @@ Keputusan kunci:
 - **Sesi berikutnya: S0** (concierge 5 orang, 30 menit, di luar sesi) lalu
   **S1** (copy pass + outreach harga ke ≤10 venue) — detail di
   `docs/plan-v3-delta.md` § 2 dan § 6.
-- **Sesi 2026-10-18 (dibuka lalu ditutup WIP):** founder menunda **S0**
-  (concierge — dilipat ke S15: kirim link live ke 5 teman) dan **S1**
-  (copy pass + outreach harga, masih utang). Beralih ke **S2 Token CSS**:
-  `fe/src/styles/tokens.css` (14 token per peran) ditulis AI + diimpor di
-  `main.jsx`; **belum** selesai. Sisa: hapus `:root` dari `index.css`,
-  ganti literal `#f0f0f0`/`#f9f9f9`/`#f7f7f7`/`#888`/`#007bff`/`white` →
-  `var()`, hapus `.modal*`. Commit WIP pushed (`fe@9d0f922`).
-  Utang kecil: titik koma hilang di `main.jsx:4`. Sesi berikutnya:
-  **lanjutkan S2**.
+- **Sesi 2026-10-18 — S2 Token CSS SELESAI** (`fe@b61ec6e`): 14 token di
+  `fe/src/styles/tokens.css`; literal warna/shadow → `var()`, `:root`
+  duplikat + `.modal*` (kode mati) dihapus. Materi FE: design token (peran
+  vs nilai), custom property/cascade, kode mati, "build hijau ≠ CSS benar"
+  (2 bug lolos grep: `white` keyword + `rgba()` ganda). Verifikasi: 0 hex di
+  luar `:root`, 14/14 token terpakai, lint+build hijau; lockfile yang
+  sempat ter-churn dikembalikan. Utang: S0 (→S15) & S1 ditunda; titik koma
+  `main.jsx:4`. Sesi berikutnya: **S3 `src/lib/formatPrice.js`**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
