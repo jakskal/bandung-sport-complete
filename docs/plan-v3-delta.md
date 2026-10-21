@@ -69,11 +69,14 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   hanya kena baris di `:root`.
   _(Selesai 2026-10-18: 14 token di `fe/src/styles/tokens.css`; 0 hex &
   0 keyword warna di luar `:root`, semua token terpakai, lint+build hijau.)_
-- [ ] **S3 — `src/lib/formatPrice.js`** (F; A tulis 6 kasus uji) signature
+- [x] **S3 — `src/lib/formatPrice.js`** (F; A tulis 6 kasus uji) signature
   v2: `formatPrice({ priceMin, priceMax, priceUnit, priceVisibility })`
   → "Rp500rb–2,5jt /bulan", "mulai Rp50rb /jam", "Harga via WA", "Harga
   belum dicek". Dipanggil dari `Place` & `PlaceDetail` menggantikan 3
   cabang duplikat. *Selesai kalau:* 6 kasus benar, duplikasi hilang.
+  _(Selesai 2026-10-21: 6/6 kasus di `scripts/check-format-price.mjs`;
+  `PRICE_UNIT_LABEL` 6/7 unit — `free` tanpa label karena harga 0 →
+  "Gratis"; duplikasi cabang hilang.)_
 - [ ] **S4 — Skema v2** (F; R). `fe/src/data/types.js` (JSDoc typedef
   Venue + Offering, tanpa organizers) + `TIER_RULES` (`tiers.js`).
   Founder jelaskan alasan tiap field. **Catatan v3:** typedef ini nanti

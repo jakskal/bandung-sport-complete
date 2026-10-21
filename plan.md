@@ -178,6 +178,17 @@ Keputusan kunci:
   luar `:root`, 14/14 token terpakai, lint+build hijau; lockfile yang
   sempat ter-churn dikembalikan. Utang: S0 (→S15) & S1 ditunda; titik koma
   `main.jsx:4`. Sesi berikutnya: **S3 `src/lib/formatPrice.js`**.
+- **Sesi 2026-10-21 — S3 `formatPrice` SELESAI** (`fe@2f8f528`): fungsi
+  murni `src/lib/formatPrice.js` + `PRICE_UNIT_LABEL` (6/7 unit; `free`
+  tanpa label karena harga 0 → "Gratis"), `Intl.NumberFormat('id-ID')`
+  eksplisit. 6 kasus uji di `scripts/check-format-price.mjs` (disposable,
+  diganti Vitest di S17). 3 cabang duplikat di `Place.jsx` &
+  `PlaceDetail.jsx` → 1 panggilan; shim `priceVisibility` ditandai
+  `// temporary until v2 (S5)`. Materi FE: pure function, DRY,
+  Intl/locale eksplisit, sinkron enum↔key map.
+  Utang: `Intl.NumberFormat` dibuat per-call; `PlaceDetail` menghitung
+  `priceFormatted` sebelum guard `!place`. Sesi berikutnya: **S4 — skema
+  v2 (`types.js` + `tiers.js`)**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
