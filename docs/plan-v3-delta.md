@@ -77,11 +77,21 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   _(Selesai 2026-10-21: 6/6 kasus di `scripts/check-format-price.mjs`;
   `PRICE_UNIT_LABEL` 6/7 unit — `free` tanpa label karena harga 0 →
   "Gratis"; duplikasi cabang hilang.)_
-- [ ] **S4 — Skema v2** (F; R). `fe/src/data/types.js` (JSDoc typedef
+- [x] **S4 — Skema v2** (F; R). `fe/src/data/types.js` (JSDoc typedef
   Venue + Offering, tanpa organizers) + `TIER_RULES` (`tiers.js`).
   Founder jelaskan alasan tiap field. **Catatan v3:** typedef ini nanti
   dipindah jadi struct Go di S6; di FE tetap ada sebagai dokumentasi
   bentuk response API. *Selesai kalau:* typedef disetujui.
+  _(Selesai 2026-10-21, `fe@c435385`: `types.js` = `Venue` + `Offering`
+  + `ScheduleSlot` + 5 enum union (`Sport`, `Audience`, `OfferingType`,
+  `PriceUnit`, `JoinMethod`); `tiers.js` = `TIER_RULES` 5 sport. File
+  diketik AI atas permintaan founder (kontrak data = tooling, bukan kode
+  render); alasan field kunci dibahas bersama: `sports` array (Sabuga),
+  `lat/lng` `number|null` (11/22 venue belum punya koordinat; link Maps
+  diturunkan dari koordinat, bukan field baru), `priceVisibility` (publik
+  vs ditahan venue vs belum dicek), `venueId`+`organizerId` minimal satu
+  terisi, `lastVerified` tanggal bukan boolean. Keputusan: tetap JS +
+  JSDoc, TS ditinjau setelah Fase 2.)_
 - [ ] **S5 — Migrasi + validasi** (A tulis; F jalankan & baca diff).
   `scripts/migrate-v1-to-v2.mjs` (sekali jalan lalu hapus) →
   `venues.json` + `offerings.json`; `scripts/validate-data.mjs`

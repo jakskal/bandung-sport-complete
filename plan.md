@@ -189,6 +189,15 @@ Keputusan kunci:
   Utang: `Intl.NumberFormat` dibuat per-call; `PlaceDetail` menghitung
   `priceFormatted` sebelum guard `!place`. Sesi berikutnya: **S4 — skema
   v2 (`types.js` + `tiers.js`)**.
+- **Sesi 2026-10-21 — S4 Skema v2 SELESAI** (`fe@c435385`): `types.js` =
+  typedef `Venue` + `Offering` + `ScheduleSlot` + enum terkunci (union
+  literal); `tiers.js` = `TIER_RULES` (5 sport, ambang tebakan awal).
+  Founder meminta AI menulis file-nya (kontrak data, bukan kode render);
+  alasan field dibahas bersama: `sports` array, `lat/lng` `number|null`,
+  `priceVisibility` 3 status, `venueId`/`organizerId` minimal satu,
+  `lastVerified` tanggal. Keputusan: tetap JS + JSDoc, TS ditinjau
+  setelah Fase 2. Sesi berikutnya: **S5 — migrasi + validator** (AI tulis
+  script, founder jalankan & baca diff).
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
