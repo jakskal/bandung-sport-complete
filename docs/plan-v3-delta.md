@@ -157,7 +157,11 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   hijau, `docker build` + `docker run -p 18081:8080` →
   `curl /api/venues` length 22, detail FTL = `Sedang` + `priceFrom`.)_
 - [ ] **S8 — Deploy BE ke Vercel (Go preset, gratis, tanpa kartu)** (F; A
-  jelaskan config). Vercel mendeteksi `go.mod` di root repo + entrypoint
+  jelaskan config). **Ditunda 2026-10-22 (keputusan founder): dikerjakan
+  sebelum S13, bukan sekarang.** S9–S12 cukup pakai API lokal
+  (`http://localhost:8080`); S13 (`VITE_API_URL`) dan S15 (URL live)
+  baru butuh URL publik. Jangan sampai masalah deploy baru ketahuan di
+  hari deploy — kerjakan minimal satu sesi sebelum S13. Vercel mendeteksi `go.mod` di root repo + entrypoint
   `cmd/api/main.go`, server wajib listen di env `PORT`. Tambah
   `vercel.json`: `{ "framework": "go" }`. Import repo `bandung-sport-be`
   ke project Vercel baru, env `ALLOWED_ORIGINS=http://localhost:5173`.

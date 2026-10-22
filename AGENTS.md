@@ -42,7 +42,8 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
   CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator), S6
   (katalog Go), S7 (HTTP API + Docker) SELESAI — sesi aktif sekarang
-  **S8 (deploy BE ke Vercel, preset Go)**. Catatan S6/S7: kode Go ditulis
+  **S9 (FE baca API lokal)**; **S8 (deploy BE) ditunda ke sebelum S13**
+  (keputusan 2026-10-22). Catatan S6/S7: kode Go ditulis
   AI atas permintaan founder, review founder belum dilakukan. Repo
   `jakskal/bandung-sport-be` sudah di-push (`be@c471fa2`).
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada

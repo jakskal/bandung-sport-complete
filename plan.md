@@ -227,8 +227,9 @@ Keputusan kunci:
   `Makefile run/build`; README endpoint + env. Tes 9 kasus `httptest`.
   Verifikasi: `go test`/`go vet` hijau; container jalan, `curl
   /api/venues` = 22, detail FTL `Sedang`. Materi: graceful shutdown,
-  pattern routing `{id}`, CORS preflight. Sesi berikutnya: **S8 — deploy
-  BE ke Vercel**.
+  pattern routing `{id}`, CORS preflight. **S8 ditunda** (keputusan
+  2026-10-22): deploy BE digeser ke sebelum S13, karena S9–S12 cukup
+  pakai API lokal. Sesi berikutnya: **S9 — FE baca API**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
