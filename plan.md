@@ -198,6 +198,16 @@ Keputusan kunci:
   `lastVerified` tanggal. Keputusan: tetap JS + JSDoc, TS ditinjau
   setelah Fase 2. Sesi berikutnya: **S5 — migrasi + validator** (AI tulis
   script, founder jalankan & baca diff).
+- **Sesi 2026-10-22 — S5 Migrasi + Validasi SELESAI** (`fe@bdc0462`):
+  `venues.json` (22) + `offerings.json` (8) menggantikan bentuk v1; 11
+  venue berkoordinat (regex `!3d…!4d…`), 11 null sampai S14; 14 venue
+  tanpa offering = warning. `scripts/validate-data.mjs` + `npm run
+  validate` jadi pre-hook `build` (validator hijau, 16 warning). Script
+  migrasi dijalankan sekali lalu dihapus (disposable). `places.json`
+  dibiarkan sampai S9 supaya list page masih render. Materi FE: migrasi
+  data vs ubah kode, normalisasi, validator sebagai jaring pengaman
+  sebelum BFF. Sesi berikutnya: **S6 — repo `be/`, struct Go + loader +
+  `Validate()`** (founder tulis Go, AI review).
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

@@ -92,13 +92,22 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   vs ditahan venue vs belum dicek), `venueId`+`organizerId` minimal satu
   terisi, `lastVerified` tanggal bukan boolean. Keputusan: tetap JS +
   JSDoc, TS ditinjau setelah Fase 2.)_
-- [ ] **S5 — Migrasi + validasi** (A tulis; F jalankan & baca diff).
+- [x] **S5 — Migrasi + validasi** (A tulis; F jalankan & baca diff).
   `scripts/migrate-v1-to-v2.mjs` (sekali jalan lalu hapus) →
   `venues.json` + `offerings.json`; `scripts/validate-data.mjs`
   (aturan di plan-v2 § 6). Script Node ini **disposable** — di S6
   aturannya diport ke Go test, lalu script Node dihapus di S9. *Selesai
   kalau:* validator hijau; 22 venue + ≥8 offering; lat/lng terisi
   untuk venue yang `sourceUrl`-nya Google Maps.
+  _(Selesai 2026-10-22, `fe@bdc0462`: 22 venue + 8 offering; 11 venue
+  berkoordinat, 11 null sampai S14; 14 venue tanpa offering = warning
+  (TODO kurasi, bukan error). `validate-data.mjs` + `npm run validate`
+  jadi pre-hook `build`; script migrasi dijalankan sekali lalu dihapus.
+  Keputusan migrasi: `lastVerified` null (tanggal scrape ≠ verifikasi),
+  `tier` dibuang (dihitung dari `TIER_RULES`), `places.json` dibiarkan
+  sampai S9 supaya list page tetap render, `joinMethod` hanya `["wa"]`
+  kalau nomor WA dipublikasikan, `offeringType` diturunkan dari
+  (sport, unit).)_
 
 ### Minggu 2 — BFF Go (≤3 sesi) + FE baca API
 

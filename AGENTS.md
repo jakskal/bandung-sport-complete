@@ -39,11 +39,12 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   (belum dibuat; dibuat di sesi S6).
 - **Tugas berikutnya: S0 (concierge, 30 menit) lalu S1 (copy pass +
   outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
-  **Update 2026-10-21:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
-  CSS), S3 (`formatPrice`), S4 (skema v2: `types.js` + `tiers.js`) SELESAI
-  — sesi aktif sekarang **S5 (migrasi v1→v2 + validator)**: AI tulis
-  script, founder jalankan & baca diff; lat/lng hanya untuk venue yang
-  `sourceUrl`-nya Google Maps.
+  **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
+  CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator) SELESAI
+  — sesi aktif sekarang **S6 (repo `be/`: struct Go, loader `go:embed`,
+  `Validate()`)**. Founder menulis Go (keahliannya); AI review + tulis
+  `Makefile`/skeleton tes kalau diminta. `fe/src/data/venues.json` +
+  `offerings.json` disalin ke `be/data/`.
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 
