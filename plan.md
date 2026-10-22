@@ -219,6 +219,16 @@ Keputusan kunci:
   tabel tes. Catatan: kode Go ditulis AI atas permintaan founder; review
   founder belum dilakukan. Sesi
   berikutnya: **S7 — HTTP server + CORS + Dockerfile**.
+- **Sesi 2026-10-22 — S7 HTTP API SELESAI** (`be@c471fa2`): 3 endpoint
+  (`/healthz`, `/api/venues`, `/api/venues/{id}`), JSON error body,
+  405 + `Allow`, CORS preflight 204 hanya untuk `ALLOWED_ORIGINS`,
+  `Validate()` saat startup (fail fast), `log/slog`, graceful shutdown.
+  Dockerfile multi-stage golang→distroless nonroot, `CGO_ENABLED=0`;
+  `Makefile run/build`; README endpoint + env. Tes 9 kasus `httptest`.
+  Verifikasi: `go test`/`go vet` hijau; container jalan, `curl
+  /api/venues` = 22, detail FTL `Sedang`. Materi: graceful shutdown,
+  pattern routing `{id}`, CORS preflight. Sesi berikutnya: **S8 — deploy
+  BE ke Vercel**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

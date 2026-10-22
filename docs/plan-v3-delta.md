@@ -137,7 +137,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   permintaan founder (aturan default: founder menulis); review founder
   belum dilakukan. Repo GitHub `jakskal/bandung-sport-be` sudah dibuat
   (initial commit + MIT) dan `be@79f59db` sudah di-push.)_
-- [ ] **S7 — HTTP server + CORS + Dockerfile** (F; A boleh tulis CORS
+- [x] **S7 — HTTP server + CORS + Dockerfile** (F; A boleh tulis CORS
   middleware + Dockerfile + README skeleton). Endpoint § 4. `cmd/api/
   main.go`: `PORT` env (default 8080), `ALLOWED_ORIGINS` env (comma
   separated), graceful shutdown, `log/slog`. `internal/httpapi`:
@@ -146,6 +146,16 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   (`golang:1.2x-alpine` → `gcr.io/distroless/static`), `CGO_ENABLED=0`.
   *Selesai kalau:* `docker build` + `docker run -p 8080:8080` lalu
   `curl localhost:8080/api/venues | jq length` = 22.
+  _(Selesai 2026-10-22, `be@c471fa2`: `cmd/api/main.go` = PORT +
+  ALLOWED_ORIGINS + slog + timeout server + graceful shutdown;
+  `Validate()` dijalankan saat startup (exit 1 kalau data rusak).
+  `internal/httpapi` = 3 route + `{id}`, JSON error body, 405 + `Allow`,
+  CORS preflight 204 hanya untuk origin terdaftar. `Dockerfile`
+  multi-stage (golang:1.23-alpine → distroless static nonroot,
+  CGO_ENABLED=0) + `.dockerignore`; `Makefile` `run`/`build`; README
+  endpoint + env. Tes: 9 kasus `httptest`. Verifikasi: `go test`/`go vet`
+  hijau, `docker build` + `docker run -p 18081:8080` →
+  `curl /api/venues` length 22, detail FTL = `Sedang` + `priceFrom`.)_
 - [ ] **S8 — Deploy BE ke Vercel (Go preset, gratis, tanpa kartu)** (F; A
   jelaskan config). Vercel mendeteksi `go.mod` di root repo + entrypoint
   `cmd/api/main.go`, server wajib listen di env `PORT`. Tambah

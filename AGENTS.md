@@ -41,10 +41,10 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
   **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
   CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator), S6
-  (katalog Go) SELESAI — sesi aktif sekarang **S7 (HTTP server + CORS +
-  Dockerfile)**. Catatan S6: kode Go ditulis AI atas permintaan founder,
-  review founder belum dilakukan. Repo GitHub `jakskal/bandung-sport-be`
-  sudah di-push (`be@79f59db`).
+  (katalog Go), S7 (HTTP API + Docker) SELESAI — sesi aktif sekarang
+  **S8 (deploy BE ke Vercel, preset Go)**. Catatan S6/S7: kode Go ditulis
+  AI atas permintaan founder, review founder belum dilakukan. Repo
+  `jakskal/bandung-sport-be` sudah di-push (`be@c471fa2`).
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 
