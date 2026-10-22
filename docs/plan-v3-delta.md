@@ -111,7 +111,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
 
 ### Minggu 2 — BFF Go (≤3 sesi) + FE baca API
 
-- [ ] **S6 — Repo `be/`, model, loader, validasi** (F menulis Go — ini
+- [x] **S6 — Repo `be/`, model, loader, validasi** (F menulis Go — ini
   keahliannya; A review + tulis `Makefile`/skeleton tes kalau diminta).
   `git init` di `be/`, remote baru `jakskal/bandung-sport-api`.
   `go mod init github.com/jakskal/bandung-sport-api` (Go ≥1.22, pakai
@@ -125,6 +125,18 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   memuat data embed dan gagal kalau `Validate()` tidak kosong (ini
   validator permanennya). *Selesai kalau:* `go test ./...` hijau,
   `go vet` bersih.
+  _(Selesai 2026-10-22, `be@83a79c4`: `model.go` (Venue/Offering/
+  ScheduleSlot/Price, pointer untuk field nullable), `load.go`
+  (`Load(fs.FS)` + indeks id→venue & venue→offerings), `validate.go`
+  (`Validate` + `Warnings`, port aturan validator Node), `tier.go`
+  (`TIER_RULES`, `Tier`, `PriceFrom`), `data/embed.go`; `Makefile` +
+  README. Tes: `TestTier` 14 kasus, `TestPriceFrom` 5,
+  `TestLoadIndexes`, `TestDataIsValid` (22 venue, ≥8 offering);
+  `go test ./...` + `go vet` hijau. Paritas dengan validator Node:
+  0 error, 16 warning sama. **Catatan:** kode Go sesi ini ditulis AI atas
+  permintaan founder (aturan default: founder menulis); review founder
+  belum dilakukan. Repo GitHub `jakskal/bandung-sport-api` belum dibuat →
+  remote sudah diset, push menunggu repo dibuat.)_
 - [ ] **S7 — HTTP server + CORS + Dockerfile** (F; A boleh tulis CORS
   middleware + Dockerfile + README skeleton). Endpoint § 4. `cmd/api/
   main.go`: `PORT` env (default 8080), `ALLOWED_ORIGINS` env (comma

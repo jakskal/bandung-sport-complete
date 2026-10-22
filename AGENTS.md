@@ -40,11 +40,11 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
 - **Tugas berikutnya: S0 (concierge, 30 menit) lalu S1 (copy pass +
   outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
   **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
-  CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator) SELESAI
-  — sesi aktif sekarang **S6 (repo `be/`: struct Go, loader `go:embed`,
-  `Validate()`)**. Founder menulis Go (keahliannya); AI review + tulis
-  `Makefile`/skeleton tes kalau diminta. `fe/src/data/venues.json` +
-  `offerings.json` disalin ke `be/data/`.
+  CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator), S6
+  (katalog Go) SELESAI — sesi aktif sekarang **S7 (HTTP server + CORS +
+  Dockerfile)**. Catatan S6: kode Go ditulis AI atas permintaan founder,
+  review founder belum dilakukan. Repo GitHub `jakskal/bandung-sport-api`
+  belum dibuat (remote sudah diset di `be/`).
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 
