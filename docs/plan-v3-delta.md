@@ -113,8 +113,8 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
 
 - [x] **S6 — Repo `be/`, model, loader, validasi** (F menulis Go — ini
   keahliannya; A review + tulis `Makefile`/skeleton tes kalau diminta).
-  `git init` di `be/`, remote baru `jakskal/bandung-sport-api`.
-  `go mod init github.com/jakskal/bandung-sport-api` (Go ≥1.22, pakai
+  `git init` di `be/`, remote baru `jakskal/bandung-sport-be`.
+  `go mod init github.com/jakskal/bandung-sport-be` (Go ≥1.22, pakai
   pattern routing stdlib). Copy `venues.json` + `offerings.json` ke
   `be/data/`. Paket `internal/catalog`: struct `Venue`, `Offering`
   (field = § 6 plan-v2, tag JSON camelCase), baca dari `data.FS`
@@ -125,7 +125,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   memuat data embed dan gagal kalau `Validate()` tidak kosong (ini
   validator permanennya). *Selesai kalau:* `go test ./...` hijau,
   `go vet` bersih.
-  _(Selesai 2026-10-22, `be@83a79c4`: `model.go` (Venue/Offering/
+  _(Selesai 2026-10-22, `be@79f59db`: `model.go` (Venue/Offering/
   ScheduleSlot/Price, pointer untuk field nullable), `load.go`
   (`Load(fs.FS)` + indeks id→venue & venue→offerings), `validate.go`
   (`Validate` + `Warnings`, port aturan validator Node), `tier.go`
@@ -135,8 +135,8 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `go test ./...` + `go vet` hijau. Paritas dengan validator Node:
   0 error, 16 warning sama. **Catatan:** kode Go sesi ini ditulis AI atas
   permintaan founder (aturan default: founder menulis); review founder
-  belum dilakukan. Repo GitHub `jakskal/bandung-sport-api` belum dibuat →
-  remote sudah diset, push menunggu repo dibuat.)_
+  belum dilakukan. Repo GitHub `jakskal/bandung-sport-be` sudah dibuat
+  (initial commit + MIT) dan `be@79f59db` sudah di-push.)_
 - [ ] **S7 — HTTP server + CORS + Dockerfile** (F; A boleh tulis CORS
   middleware + Dockerfile + README skeleton). Endpoint § 4. `cmd/api/
   main.go`: `PORT` env (default 8080), `ALLOWED_ORIGINS` env (comma
@@ -149,7 +149,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
 - [ ] **S8 — Deploy BE ke Vercel (Go preset, gratis, tanpa kartu)** (F; A
   jelaskan config). Vercel mendeteksi `go.mod` di root repo + entrypoint
   `cmd/api/main.go`, server wajib listen di env `PORT`. Tambah
-  `vercel.json`: `{ "framework": "go" }`. Import repo `bandung-sport-api`
+  `vercel.json`: `{ "framework": "go" }`. Import repo `bandung-sport-be`
   ke project Vercel baru, env `ALLOWED_ORIGINS=http://localhost:5173`.
   Catat URL di `be/README.md`. Dockerfile dari S7 tetap disimpan (untuk
   lokal + portofolio), bukan untuk deploy. Cold start Go ~0,3–1 dtk
@@ -288,7 +288,7 @@ serverless, free tier, tersedia juga lewat Vercel Marketplace) atau
 
 ## 4. Kontrak API (BFF Go)
 
-Base: `https://bandung-sport-api.vercel.app` (nama project Vercel BE). Semua response `Content-Type:
+Base: `https://bandung-sport-be.vercel.app` (nama project Vercel BE). Semua response `Content-Type:
 application/json; charset=utf-8`. Error = `{ "error": "not found" }`.
 BE **tidak** memfilter — 22–200 venue cukup difilter di FE; filter di BE
 baru kalau payload >200 KB.
@@ -420,7 +420,7 @@ ini buat apa? Terus tempat mana yang harganya paling masuk akal buat lo?"
 ├── AGENTS.md, plan.md, docs/, research/
 ├── fe/   ← repo publik jakskal/bandung-sport-web  (Vite + React 19, JS)
 │   └── src/{api,hooks,components,pages,lib,styles,data(types.js, modes.js, areas.js saja)}
-└── be/   ← repo publik jakskal/bandung-sport-api  (Go stdlib)
+└── be/   ← repo publik jakskal/bandung-sport-be  (Go stdlib)
     ├── go.mod                       ← wajib di root repo (Vercel membacanya)
     ├── vercel.json                  ← { "framework": "go" }
     ├── cmd/api/main.go              ← entrypoint yang dikenali Vercel; listen env PORT
@@ -433,7 +433,7 @@ ini buat apa? Terus tempat mana yang harganya paling masuk akal buat lo?"
 ```
 
 Hosting (semua gratis, tanpa kartu): FE = Vercel project `bandung-sport-web`
-(preset Vite), BE = Vercel project `bandung-sport-api` (preset Go). Dua
+(preset Vite), BE = Vercel project `bandung-sport-be` (preset Go). Dua
 project, satu akun. Env FE: `VITE_API_URL`. Env BE: `ALLOWED_ORIGINS`, `PORT`
 (diisi Vercel).
 

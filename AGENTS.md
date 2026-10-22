@@ -35,16 +35,16 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   `v=1`, tanpa harga) dengan CTA di halaman tujuan; kartu coming-soon di
   bulan ke-2 (urutan diacak).
 - Struktur jadi 3 repo: root privat (docs), `fe/` publik
-  `jakskal/bandung-sport-web`, `be/` publik `jakskal/bandung-sport-api`
-  (belum dibuat; dibuat di sesi S6).
+  `jakskal/bandung-sport-web`, `be/` publik `jakskal/bandung-sport-be`
+  (dibuat di sesi S6).
 - **Tugas berikutnya: S0 (concierge, 30 menit) lalu S1 (copy pass +
   outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
   **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
   CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator), S6
   (katalog Go) SELESAI — sesi aktif sekarang **S7 (HTTP server + CORS +
   Dockerfile)**. Catatan S6: kode Go ditulis AI atas permintaan founder,
-  review founder belum dilakukan. Repo GitHub `jakskal/bandung-sport-api`
-  belum dibuat (remote sudah diset di `be/`).
+  review founder belum dilakukan. Repo GitHub `jakskal/bandung-sport-be`
+  sudah di-push (`be@79f59db`).
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 
@@ -259,5 +259,5 @@ Versi lengkap dan terbaru: `docs/plan-v3-delta.md` § 7. Ringkasnya:
   `docs/data/` (outreach.md, concierge.md — dibuat saat S0/S1).
 - `fe/` — repo publik `jakskal/bandung-sport-web`: Vite + React 19 (JS),
   react-router v7, oxlint, Prettier.
-- `be/` — repo publik `jakskal/bandung-sport-api` (dibuat di S6): Go stdlib,
+- `be/` — repo publik `jakskal/bandung-sport-be` (dibuat di S6): Go stdlib,
   `go:embed` data JSON, deploy Vercel (preset Go). Satu-satunya sumber data setelah S9. FE juga di Vercel (preset Vite). Tanpa DB sampai trigger plan-v2 § 5.

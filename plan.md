@@ -208,15 +208,16 @@ Keputusan kunci:
   data vs ubah kode, normalisasi, validator sebagai jaring pengaman
   sebelum BFF. Sesi berikutnya: **S6 — repo `be/`, struct Go + loader +
   `Validate()`** (founder tulis Go, AI review).
-- **Sesi 2026-10-22 — S6 Katalog Go SELESAI** (`be@83a79c4`): repo `be/`
-  di-`git init` + remote `jakskal/bandung-sport-api` (repo GitHub belum
-  dibuat → push tertunda). `internal/catalog`: `model.go`, `load.go`
+- **Sesi 2026-10-22 — S6 Katalog Go SELESAI** (`be@79f59db`): repo `be/`
+  di-`git init` + remote `jakskal/bandung-sport-be` (sudah di-push;
+  modul `github.com/jakskal/bandung-sport-be`). `internal/catalog`:
+  `model.go`, `load.go`
   (`Load(fs.FS)` + indeks), `validate.go` (`Validate` + `Warnings`, port
   validator Node — 0 error/16 warning, paritas), `tier.go` (`TIER_RULES`,
   `Tier`, `PriceFrom`); `data/embed.go` + 2 JSON. Tes 21 kasus, `go test`
   + `go vet` hijau. Materi: pointer untuk null, `go:embed`, struct tag,
   tabel tes. Catatan: kode Go ditulis AI atas permintaan founder; review
-  founder belum dilakukan. Utang: repo GitHub BE belum ada. Sesi
+  founder belum dilakukan. Sesi
   berikutnya: **S7 — HTTP server + CORS + Dockerfile**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
