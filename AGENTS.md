@@ -41,12 +41,12 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   outreach harga)** — checklist di `docs/plan-v3-delta.md` § 2.
   **Update 2026-10-22:** S0 & S1 ditunda (S0 dilipat ke S15); S2 (Token
   CSS), S3 (`formatPrice`), S4 (skema v2), S5 (migrasi + validator), S6
-  (katalog Go), S7 (HTTP API + Docker), S9 (FE baca API) SELESAI — sesi
-  aktif sekarang **S10 (detail page v2 dari API)**. **S8 (deploy BE)
-  ditunda ke sebelum S13** (keputusan 2026-10-22). Catatan S6/S7: kode Go
-  ditulis AI atas permintaan founder, review founder belum dilakukan.
-  Utang S9: cek browser (share URL, refresh, back/forward, BE mati →
-  error state).
+  (katalog Go), S7 (HTTP API + Docker) SELESAI — sesi aktif sekarang
+  **S9 (FE baca API)**. **S8 (deploy BE) ditunda ke sebelum S13**
+  (keputusan 2026-10-22). Catatan: kode Go S6/S7 ditulis AI atas
+  permintaan founder (review founder belum). **S9 dikerjakan ulang oleh
+  founder** — percobaan pertama ditulis AI lalu di-reset; FE bukan bagian
+  yang didelegasikan.
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 

@@ -171,7 +171,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `go:embed`, update data = commit + auto-deploy. Cadangan kalau Vercel
   Go bermasalah: Koyeb free (container dari Dockerfile).
   *Selesai kalau:* `curl <url>/healthz` 200 dari HP (data seluler).
-- [x] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
+- [ ] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
   contoh pola `useFetch`). `fe/.env.example` + `VITE_API_URL`;
   `src/api/client.js` (`fetchVenues()`, `fetchVenue(id)`, lempar error
   kalau `!res.ok`); `src/hooks/useFetch.js` (`{ data, error, loading }`,
@@ -186,18 +186,9 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   layar putih; `grep -rn 'data/.*\.json' fe/src` kosong.
   *Materi FE:* `useEffect` + cleanup, promise/async, state mesin 3 fase
   (loading/error/data), env var Vite, CORS dari sisi browser.
-  _(Selesai 2026-10-22, `fe@e4d8276`: `api/client.js` (`fetchVenues`,
-  `fetchVenue`, throw + `error.status`), `hooks/useFetch.js` (3 fase,
-  `AbortController`, `retry`; `loading` diturunkan saat render supaya
-  lolos aturan `react(set-state-in-effect)`), `ListPage` = skeleton 6
-  kartu + error "Coba lagi", filter URL `olahraga`/`tier`/`area`, card
-  pakai `priceFrom` + `tier` API; route `/tempat/:venueId` (`parseInt`
-  hilang). Dihapus: 3 JSON, `tiers.js` (ambang tier kini hanya di Go),
-  `scripts/validate-data.mjs` + hook `validate` di build. Verifikasi
-  otomatis: lint+build hijau, `grep 'data/.*\.json' src` kosong, dev
-  server 200 di `/` dan `/tempat/…`, CORS 5173→8080 OK, API 22 venue.
-  **Cek manual tersisa (browser):** share URL, refresh, back/forward,
-  dan state error saat BE dimatikan.)_
+  _(Dikerjakan ulang 2026-10-22 oleh founder: percobaan pertama ditulis
+  AI lalu di-reset — FE adalah materi belajar founder, bukan bagian yang
+  didelegasikan.)_
 - [ ] **S10 ★ — Detail page v2 dari API (plan-v2 malam 8)** (F, R).
   `VenueDetail` (`fetchVenue`), "← Semua tempat", nama + meta + badge
   tier, daftar paket `OfferingRow` + `PriceTag` (harga + unit +
