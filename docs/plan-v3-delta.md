@@ -171,7 +171,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `go:embed`, update data = commit + auto-deploy. Cadangan kalau Vercel
   Go bermasalah: Koyeb free (container dari Dockerfile).
   *Selesai kalau:* `curl <url>/healthz` 200 dari HP (data seluler).
-- [ ] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
+- [x] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
   contoh pola `useFetch`). `fe/.env.example` + `VITE_API_URL`;
   `src/api/client.js` (`fetchVenues()`, `fetchVenue(id)`, lempar error
   kalau `!res.ok`); `src/hooks/useFetch.js` (`{ data, error, loading }`,

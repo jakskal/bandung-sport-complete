@@ -230,6 +230,16 @@ Keputusan kunci:
   pattern routing `{id}`, CORS preflight. **S8 ditunda** (keputusan
   2026-10-22): deploy BE digeser ke sebelum S13, karena S9–S12 cukup
   pakai API lokal. Sesi berikutnya: **S9 — FE baca API**.
+- **Sesi 2026-10-26 — S9 FE baca API SELESAI** (`fe@d28e599`):
+  `api/client.js` + `hooks/useFetch.js` (3 fase, `AbortController`,
+  `retry`; `loading` diturunkan saat render + jebakan state fungsi
+  `() => …`), `ListPage` skeleton + error \"Coba lagi\", filter URL
+  `olahraga`/`tier`/`area`, card pakai `priceFrom`/`tier` API,
+  `Place.jsx` v2, route `/tempat/:venueId`, `PlaceDetail` basic dari API.
+  Bersih-bersih: 3 JSON, `tiers.js`, `validate-data.mjs` + hook `validate`
+  di build dihapus; `src/data/` tinggal `types.js`. Verifikasi: lint+build
+  hijau, `grep 'data/.*\\.json' src` kosong, 404 asing OK. Sesi
+  berikutnya: **S10 — detail page v2 dari API**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
