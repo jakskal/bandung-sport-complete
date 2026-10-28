@@ -262,6 +262,8 @@ Versi lengkap dan terbaru: `docs/plan-v3-delta.md` § 7. Ringkasnya:
   (§ 7), ritual mingguan (§ 10). Urutan fase § 5/§ 8 **digantikan** v3.
 - `plan.md` — § Status (progres per sesi, wajib diupdate) + sejarah rencana.
 - `AGENTS.md` / `CLAUDE.md` — file ini (CLAUDE.md menunjuk ke sini).
+- `docs/handoff.md` — prompt serah-terima untuk AI/thread baru (status,
+  jebakan, tugas berikutnya). Update setiap sesi selesai.
 - `docs/` lainnya — sketsa layout, review board, spec wizard lama (arsip),
   `docs/data/` (outreach.md, concierge.md — dibuat saat S0/S1).
 - `fe/` — repo publik `jakskal/bandung-sport-web`: Vite + React 19 (JS),
