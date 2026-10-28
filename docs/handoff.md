@@ -3,7 +3,7 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-28** (setelah S10 selesai, S11 belum commit).
+> Terakhir diperbarui: **2026-10-28** (setelah S11 selesai, sesi berikutnya S12).
 
 ---
 
@@ -47,12 +47,10 @@ React sekaligus punya portofolio full-stack live.
   filter URL olahraga/tier/area, route /tempat/:venueId, data JSON FE dihapus.
 - S10 SELESAI (fe@51252d5): PriceTag, OfferingRow, "Harga dicek <bulan tahun>",
   CTA WA, empty state. be@fa1e254 set lastVerified=2026-10-22 untuk 8 offering.
-- S11 (hierarki card) HAMPIR SELESAI, BELUM COMMIT. Yang tersisa:
-  * Place.css:26 `border: 1px solid var(--border),;` -> hapus koma (CSS invalid)
-  * .place-card-header belum flex (badge tier harus di kanan nama)
-  * .place-card h2 perlu font-size 1rem, margin 0
-  * meta " - " -> " · ", TierBadge cukup tampil "Murah" bukan "Tier Murah"
-  * PriceTag.css orphan (kelasnya .price-tag, komponen pakai .place-tag)
+- S11 SELESAI (fe@dea16b7): TierBadge pill, kartu price-first (nama+badge ->
+  harga hero -> meta kecil), chip aktif --brand, token --fs-price/--radius-card.
+  Aturan: PriceTag.css mengurus weight/margin; ukuran hero hanya di
+  `.place-card .price-tag` supaya baris paket di detail tetap normal.
 - Sesi berikutnya: S12 (header "ini apa" + CTA "Lihat semua tempat"),
   lalu S13 (deploy FE Vercel). S8 (deploy BE) sengaja ditunda ke sebelum S13.
 
@@ -92,9 +90,8 @@ Error API: {"error":"not found"}; 405 punya header Allow.
 1. Selesaikan 5 perbaikan CSS/teks S11 di atas (biarkan founder yang mengetik;
    tunjuk baris + alasan, bukan menulis seluruh file).
 2. Minta founder menjalankan tes 5 detik (tanya orang: "berapa harganya?").
-3. Commit + push fe, update gitlink root (`git add fe be`), centang S11,
-   update plan.md § Status + AGENTS.md.
-4. Lanjut S12 sesuai docs/plan-v3-delta.md § 2.
+3. Lanjut S12 sesuai docs/plan-v3-delta.md § 2 (header "ini apa" + CTA
+   "Lihat semua tempat"; komponen `Header` sendiri; mobile-first ≤390px).
 ```
 
 ---

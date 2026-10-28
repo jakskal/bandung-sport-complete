@@ -201,7 +201,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
 
 ### Minggu 3 — Lolos tes 5 detik + live
 
-- [ ] **S11 — Hierarki card (plan-v2 malam 7)** (F; A beri 1 sketsa).
+- [x] **S11 — Hierarki card (plan-v2 malam 7)** (F; A beri 1 sketsa).
   Nama + badge tier (pill) → **harga hero** (`--fs-price`, bold) →
   "Olahraga · Area" kecil; card putih, border, radius; chip aktif =
   `--brand`. *Selesai kalau:* 1 teman menyebut harga tanpa ditanya.

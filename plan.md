@@ -249,6 +249,14 @@ Keputusan kunci:
   objek (bukan positional args), `priceFrom` objek harus di-spread,
   `priceVisibility` undefined = fallback 'unknown'. Lint+build hijau.
   Sesi berikutnya: **S11 — hierarki card**.
+- **Sesi 2026-10-28 — S11 Hierarki card SELESAI** (`fe@dea16b7`):
+  token `--brand`/`--brand-soft`/`--fs-price`/`--fs-meta`/`--radius-card`,
+  komponen `TierBadge` (pill), kartu disusun ulang: nama + badge → harga
+  hero (`--fs-price`, 700) → meta "Olahraga · Area" kecil. Chip aktif
+  pakai `--brand`. Aturan yang disepakati: `PriceTag` mengurus bentuk
+  dirinya (weight/margin), halaman mengurus ukuran (`.place-card
+  .price-tag`), supaya baris paket di detail tidak ikut jadi hero.
+  Lint+build hijau. Sesi berikutnya: **S12 — header "ini apa"**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

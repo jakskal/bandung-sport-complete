@@ -45,13 +45,16 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   (`fe@d28e599`: `api/client.js`, `hooks/useFetch.js`, `ListPage` +
   skeleton + error, `Place.jsx` v2, route `/tempat/:venueId`,
   `PlaceDetail` basic dari API; bersih-bersih selesai) — sesi aktif
-  sekarang **S11 (hierarki card)**. **S8 (deploy BE) ditunda ke sebelum
+  sekarang **S12 (header "ini apa")**. **S8 (deploy BE) ditunda ke sebelum
   S13** (keputusan 2026-10-22). Catatan: kode Go S6/S7 ditulis AI atas
   permintaan founder (review founder belum); FE ditulis founder.
   **S10 SELESAI 2026-10-28** (`fe@51252d5`): `PriceTag`, `OfferingRow`
   (judul + harga + "Harga dicek <bulan tahun>" hanya bila `lastVerified`
   != null), CTA WA full-width, empty state jujur, `lastVerified` data BE
   diisi untuk semua penawaran berharga (`be@fa1e254`).
+  **S11 SELESAI 2026-10-28** (`fe@dea16b7`): `TierBadge` pill, kartu
+  price-first (nama+badge → harga hero → meta kecil), chip aktif `--brand`,
+  token `--fs-price`/`--radius-card`/`--brand`.
 - `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
   perubahan. Dokumen root belum di-commit.
 
