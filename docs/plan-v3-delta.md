@@ -189,7 +189,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   _(Dikerjakan ulang 2026-10-22 oleh founder: percobaan pertama ditulis
   AI lalu di-reset — FE adalah materi belajar founder, bukan bagian yang
   didelegasikan.)_
-- [ ] **S10 ★ — Detail page v2 dari API (plan-v2 malam 8)** (F, R).
+- [x] **S10 ★ — Detail page v2 dari API (plan-v2 malam 8)** (F, R).
   `VenueDetail` (`fetchVenue`), "← Semua tempat", nama + meta + badge
   tier, daftar paket `OfferingRow` + `PriceTag` (harga + unit +
   visibility), tiap paket tampil **"Harga dicek <bulan tahun>"** hanya

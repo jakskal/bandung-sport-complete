@@ -240,6 +240,15 @@ Keputusan kunci:
   di build dihapus; `src/data/` tinggal `types.js`. Verifikasi: lint+build
   hijau, `grep 'data/.*\\.json' src` kosong, 404 asing OK. Sesi
   berikutnya: **S10 — detail page v2 dari API**.
+- **Sesi 2026-10-28 — S10 Detail page v2 SELESAI** (`fe@51252d5`):
+  `PriceTag` (satu sumber format harga), `OfferingRow` (judul + harga +
+  "Harga dicek {bulan tahun}" hanya bila `lastVerified` != null), CTA WA
+  full-width, Maps/IG/Website berlabel, empty state "Belum ada paket
+  terverifikasi". Data BE: `lastVerified = 2026-10-22` untuk 8 penawaran
+  berharga (`be@fa1e254`). Jebakan yang dilewati: `formatPrice` menerima
+  objek (bukan positional args), `priceFrom` objek harus di-spread,
+  `priceVisibility` undefined = fallback 'unknown'. Lint+build hijau.
+  Sesi berikutnya: **S11 — hierarki card**.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
