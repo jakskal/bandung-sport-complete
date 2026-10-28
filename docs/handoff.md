@@ -3,7 +3,8 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-28** (setelah S11 selesai, sesi berikutnya S12).
+> Terakhir diperbarui: **2026-10-28** (S11 selesai; S12 sedang berjalan,
+> menunggu keputusan copy tagline).
 
 ---
 
@@ -51,8 +52,20 @@ React sekaligus punya portofolio full-stack live.
   harga hero -> meta kecil), chip aktif --brand, token --fs-price/--radius-card.
   Aturan: PriceTag.css mengurus weight/margin; ukuran hero hanya di
   `.place-card .price-tag` supaya baris paket di detail tetap normal.
-- Sesi berikutnya: S12 (header "ini apa" + CTA "Lihat semua tempat"),
-  lalu S13 (deploy FE Vercel). S8 (deploy BE) sengaja ditunda ke sebelum S13.
+- S12 SEDANG BERJALAN (belum commit). Sudah ada: `components/Header/`
+  (Header.jsx + Header.css), token `--fs-hero`, `<section id="tempat-list">`
+  di ListPage, kandidat copy di `docs/copy/header.md` (tagline masih dicari).
+  Perbaikan yang belum dilakukan:
+  * Header.jsx: ada tanda kutip nyasar di akhir subline (`datang."`)
+  * Header.css media query: `padding: 48px` -> `padding: 48px 0 32px;`
+  * Header.css: `.site-header-cta` perlu `font-weight: 600`
+  * Header.css: pakai `var(--fs-hero)`, jangan hardcode 1.75rem
+  * ListPage: `<Link className="place-card">` + `<article className="place-card">`
+    = kartu bersarang; hapus class dari Link
+  * ListPage: skeleton & error masih di dalam `.filter-container`; pindahkan ke
+    `#tempat-list`, dan sembunyikan filter saat loading/error
+- Sesi berikutnya setelah S12: S13 (deploy FE Vercel). S8 (deploy BE) sengaja
+  ditunda ke sebelum S13.
 
 ## CARA MENJALANKAN
 Node: wajib pakai ~/.n/bin (v22); `node` default v16.
@@ -116,6 +129,9 @@ Detail lengkap: `docs/plan-v3-delta.md` § 2.
 - `fe/` HEAD `51252d5` + perubahan S11 belum di-commit.
 - `be/` HEAD `fa1e254`, test hijau (`go test ./...`).
 - Root repo: gitlink `fe`/`be`, dokumen di-commit terpisah.
+- `src/components/` FE: Place, PriceTag, TierBadge, FilterChips, Offering,
+  Header (Header belum final, lihat status S12).
+- `docs/copy/header.md` berisi kandidat tagline/subline untuk S12.
 - `src/data/` FE tinggal `types.js` (dokumentasi bentuk response API).
 - `scripts/` FE tinggal `check-format-price.mjs`.
 - Endpoint yang ada: hanya 3 (list, detail, health). Tidak ada DB, tidak ada auth.
