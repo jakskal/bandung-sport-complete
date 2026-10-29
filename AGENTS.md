@@ -60,12 +60,17 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   copy final di `docs/copy/header.md`. **Belum lulus gerbang**: 1 orang
   menjawab "oh list doang" di tes 5 detik → Q3 (pembeda dari Google) gagal.
   Keputusan 2026-10-29: tes screenshot **ditunda ke S15** (link live), S12
-  sengaja belum dicentang. **S8 & S13 SUDAH LIVE** (diverifikasi curl
-  2026-10-29): FE `https://bandung-sport-web.vercel.app` (deep link 200,
-  bundle panggil BE production) + BE
-  `https://bandung-sport-be.vercel.app` (`/healthz` 200). Belum: tes refresh
-  dari HP/data seluler, cek Analytics, rapikan `ALLOWED_ORIGINS`. Sesi aktif
-  berikutnya: **S14 (input data) & S15 (kirim ke orang)**.
+  sengaja belum dicentang. **S8 & S13 SELESAI + dicentang** (curl + tes
+  refresh HP oleh founder, 2026-10-29): FE
+  `https://bandung-sport-web.vercel.app` + BE
+  `https://bandung-sport-be.vercel.app`. Keputusan founder:
+  `ALLOWED_ORIGINS` production yang masih ikut `localhost:5173` **dibiarkan**
+  — jangan usulkan membereskannya lagi. Sisa: cek Vercel Web Analytics.
+  Sesi aktif berikutnya: **S14 (input data) & S15 (kirim ke orang)**.
+- **Wewenang AI (keputusan founder 2026-10-29):** update dokumen root
+  (`plan.md`, `AGENTS.md`, `docs/**`) dan cross-check/verifikasi state
+  dikerjakan **langsung tanpa minta izin dulu**, lalu commit + push. Kode FE
+  yang dirender tetap ditulis founder (aturan #1).
 - Root repo: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
   2026-10-29. `fe/` + `be/` sudah ter-push.
 

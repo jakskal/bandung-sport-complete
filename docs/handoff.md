@@ -51,8 +51,8 @@ React sekaligus punya portofolio full-stack live.
 ## STATUS TERKINI (2026-10-29)
 - S2–S7, S9, S10, S11 SELESAI. **S8 SELESAI + terverifikasi live** 2026-10-29
   (`https://bandung-sport-be.vercel.app`); `vercel.json` (`framework: go`)
-  ditambahkan di `be@946f739`.
-  Yang masih terbuka: `ALLOWED_ORIGINS` production masih ikut localhost.
+  ditambahkan di `be@946f739`. **S8 dicentang.** Yang dibiarkan atas
+  keputusan founder: `ALLOWED_ORIGINS` production masih ikut localhost.
 - S12 BERJALAN, kodenya selesai: `fe@45d2b14` (Header + CTA anchor) ..
   `fe@3738531` (title/meta/lang). Lint, build, `go test ./...` hijau.
 - **S13 SELESAI + terverifikasi live** 2026-10-29 lewat curl:
@@ -61,7 +61,11 @@ React sekaligus punya portofolio full-stack live.
   sudah ke-track di `fe@7481833`), bundle produksi memanggil
   `bandung-sport-be.vercel.app` (nol `localhost:8080` = `VITE_API_URL`
   ter-set di project Vercel), `<title>`+meta live identik dengan build HEAD.
-  Belum diverifikasi: refresh dari HP/data seluler, Vercel Web Analytics.
+  **Gerbang HP sudah lolos** (founder tes refresh dari HP = oke,
+  2026-10-29) -> S8 dan S13 dicentang di `plan-v3-delta.md` § 2.
+  Sisa terbuka: Vercel Web Analytics belum dicek. `ALLOWED_ORIGINS` yang
+  masih ikut localhost DIBIARKAN atas keputusan founder -- jangan ditawarkan
+  untuk dibereskan lagi.
 - **Gerbang S12 belum lulus:** tes 5 detik baru 1 responden, jawabannya
   "oh list doang" -> paham bentuknya (Q1) tapi tidak menangkap pembeda (Q3).
   Ambang: Q1 >= 2/3 DAN Q3 >= 1/3.
@@ -78,19 +82,14 @@ React sekaligus punya portofolio full-stack live.
    masih mengizinkan http://localhost:5173 padahal README § Deploy bilang
    production hanya origin FE. Tidak berbahaya (data publik, tanpa auth),
    cuma README vs konfigurasi tidak cocok.
-3. S13 SUDAH LIVE juga (lihat STATUS di atas) -- jangan kerjakan ulang
-   deploy-nya. Yang tersisa cuma tiga verifikasi, semuanya di sisi founder:
-   - Buka https://bandung-sport-web.vercel.app/tempat/v-urban-gym dari HP
-     pakai **data seluler** lalu tekan refresh. Ini bunyi gerbang S8 dan S13
-     (`plan-v3-delta.md` § 2) dan belum pernah diuji -- curl dari laptop
-     bukan penggantinya.
-   - Cek Vercel Web Analytics terpasang di project FE (S13 minta pageview;
-     event klik custom tetap S20).
-   - Rapikan `ALLOWED_ORIGINS` project BE: buang `http://localhost:5173`,
-     simpan origin FE production (+ preview kalau dipakai), lalu redeploy --
-     perubahan env hanya berlaku untuk deployment baru. Setelah itu
-     `be/README.md` § Deploy jadi benar.
-   Centang S8 + S13 di `docs/plan-v3-delta.md` § 2 hanya setelah tes HP lewat.
+3. S8 & S13 SUDAH DICENTANG 2026-10-29 (gerbang HP lolos -- founder tes
+   refresh deep link dari HP = oke). Jangan kerjakan ulang deploy-nya.
+   DUA hal yang sudah diputuskan founder, jangan dibuka lagi:
+   - `ALLOWED_ORIGINS` production yang masih ikut `http://localhost:5173`
+     DIBIARKAN. Bukan utang, jangan "diberesin". `be/README.md` § Deploy
+     memang tidak persis cocok dengan dashboard -- itu diketahui & diterima.
+   - Yang masih benar-benar terbuka dari S13 cuma satu: Vercel Web
+     Analytics belum dicek terpasang di project FE.
 4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
 4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
@@ -161,7 +160,7 @@ Error API: {"error":"not found"}; 405 punya header Allow.
 | S11 | selesai | hierarki card price-first (`fe@dea16b7`) |
 | S12 | **berjalan** | header: kode selesai, gerbang tes 5 detik belum lulus |
 | S8 | **selesai (live)** | BE `bandung-sport-be.vercel.app` — `/healthz` 200 |
-| S13 | **selesai (live, verifikasi HP tersisa)** | FE `bandung-sport-web.vercel.app` — deep link 200, bundle panggil BE production |
+| S13 | **selesai (dicentang)** | FE `bandung-sport-web.vercel.app` — deep link 200, gerbang HP lolos |
 | S14–S15 | | feedback 5–10 orang, concierge, README + CV |
 
 Detail lengkap: `docs/plan-v3-delta.md` § 2.

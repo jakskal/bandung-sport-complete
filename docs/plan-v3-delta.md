@@ -171,16 +171,12 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `go:embed`, update data = commit + auto-deploy. Cadangan kalau Vercel
   Go bermasalah: Koyeb free (container dari Dockerfile).
   *Selesai kalau:* `curl <url>/healthz` 200 dari HP (data seluler).
-  *Dikerjakan & terverifikasi 2026-10-29:* live di
-  **`https://bandung-sport-be.vercel.app`** — `/healthz` 200
-  (`{"offerings":8,"status":"ok","venues":22}`), `/api/venues` 200 +
-  `access-control-allow-origin` muncul. Catatan: baris `ALLOWED_ORIGINS=
-  http://localhost:5173` di instruksi di atas **sudah usang** — production
-  seharusnya hanya origin FE (`be/README.md` § Deploy); realitanya live
-  masih mengizinkan localhost juga (tidak berbahaya — API ini data publik
-  tanpa auth, CORS cuma penjaga browser — tapi bikin README vs konfigurasi
-  Vercel tidak cocok, dan S13 akan nyentuh env yang sama, jadi rapikan di
-  sana). Belum dicek: curl dari HP/data seluler.
+  *Dikerjakan & lulus 2026-10-29:* live di **`https://bandung-sport-be.vercel.app`**
+  — `/healthz` 200 (`{"offerings":8,"status":"ok","venues":22}`),
+  `/api/venues` 200 + header CORS muncul, `vercel.json` (`framework: go`)
+  masuk di `be@946f739`, URL tercatat di `be/README.md` § Deploy, founder
+  konfirmasi tes HP oke. Baris `ALLOWED_ORIGINS=http://localhost:5173` di
+  instruksi atas **sudah usang** — lihat keputusan di S13.
 - [x] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
   contoh pola `useFetch`). `fe/.env.example` + `VITE_API_URL`;
   `src/api/client.js` (`fetchVenues()`, `fetchVenue(id)`, lempar error
@@ -226,7 +222,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   selesai; copy di `docs/copy/header.md`. 1 responden: "oh list doang".
   Tes 5 detik **dipindah ke S15** (keputusan founder) — checkbox ini
   sengaja belum dicentang, jangan dianggap selesai.
-- [ ] **S13 — Deploy FE (Vercel, preset Vite)** (F; A jelaskan config).
+- [x] **S13 — Deploy FE (Vercel, preset Vite)** (F; A jelaskan config).
   Import repo `bandung-sport-web` ke project Vercel kedua; build
   `npm run build`, output `dist`, env `VITE_API_URL` = URL BE Vercel.
   SPA fallback: `vercel.json` di `fe/` berisi
@@ -236,16 +232,21 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `ALLOWED_ORIGINS` di project BE dengan origin FE (production + preview
   `*.vercel.app` kalau mau preview jalan).
   *Selesai kalau:* refresh di `/tempat/v-…` tidak 404 di HP.
-  *Diverifikasi 2026-10-29 (curl, belum dari HP):* live di
+  *Dikerjakan & lulus 2026-10-29:* live di
   **`https://bandung-sport-web.vercel.app`** — root 200, deep link
-  `/tempat/v-urban-gym` 200 (rewrite SPA berfungsi), bundle produksi
-  memanggil `bandung-sport-be.vercel.app` (nol `localhost:8080`, berarti
-  `VITE_API_URL` ter-set di project), `<title>`+meta live identik dengan
-  build HEAD `fe@3738531`, `vercel.json` sudah ke-track (`fe@7481833`).
-  **Masih terbuka sebelum checkbox ini dicentang:** (1) tes refresh dari HP
-  pakai **data seluler** — ini bunyi gerbangnya; (2) Vercel Web Analytics
-  belum diverifikasi terpasang; (3) `ALLOWED_ORIGINS` BE masih ikut
-  localhost, tidak cocok dengan `be/README.md` § Deploy.
+  `/tempat/v-urban-gym` 200 (rewrite SPA di `fe/vercel.json` berfungsi,
+  ke-track `fe@7481833`), bundle produksi memanggil
+  `bandung-sport-be.vercel.app` dan **nol** `localhost:8080` (berarti
+  `VITE_API_URL` ter-set di project Vercel), `<title>` + meta live identik
+  dengan build HEAD `fe@3738531`. Founder konfirmasi **tes refresh dari HP
+  = oke** → gerbang terpenuhi.
+  *Keputusan founder 2026-10-29:* `ALLOWED_ORIGINS` production yang masih
+  ikut `http://localhost:5173` **dibiarkan** — bukan utang, jangan
+  "diberesin" lagi. API ini data publik tanpa auth, CORS cuma penjaga
+  browser. Konsekuensi yang diterima: `be/README.md` § Deploy ("production
+  lists the frontend origin only") tidak persis mencerminkan dashboard.
+  Belum diverifikasi: Vercel Web Analytics (S13 memintanya; event klik
+  custom tetap S20).
 - [ ] **S14 — Input data** (F, timebox 60 menit). Balasan outreach →
   `be/data/offerings.json` dengan `lastVerified` hanya kalau beneran
   dikonfirmasi; koordinat manual untuk venue sisa; `go test` hijau;
