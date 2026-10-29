@@ -59,16 +59,20 @@ React sekaligus punya portofolio full-stack live.
   Ambang: Q1 >= 2/3 DAN Q3 >= 1/3.
 
 ## TUGASMU SEKARANG (urutan)
-1. Founder jalankan tes 5 detik ke 2 orang lagi (screenshot header saja di
-   390px, tampil 5 detik, 4 pertanyaan ada di docs/copy/header.md § 6).
-   Catat jawaban MENTAH, jangan dirapikan.
-2. Kalau Q3 masih 0: revisi **subline** saja (tagline sudah dikunci, dan
-   founder menolak kata "harga" di header -- alasannya tercatat di
-   docs/copy/header.md § 1). Jangan buka lagi perdebatan one-stop/kamus/aku.
-3. Kalau lulus: centang S12 di docs/plan-v3-delta.md § 2, update plan.md
-   § Status + AGENTS.md + file ini, commit root + push.
-4. Baru masuk S8 (deploy BE) lalu S13 (deploy FE, vercel.json SPA fallback,
-   VITE_API_URL, ALLOWED_ORIGINS origin production).
+1. JANGAN nyuruh founder menjalankan tes 5 detik screenshot -- keputusan
+   2026-10-29: tes DIPINDAH ke S15 (link live ke 5 orang). S12 dibiarkan
+   BELUM dicentang; itu disengaja, bukan kelupaan.
+2. Kerjakan S8 (deploy BE ke Vercel): config sudah ada di `be@6cffbda`
+   (`vercel.json` Go preset + README). Catat URL production, isi
+   `ALLOWED_ORIGINS` dengan origin FE, `go test ./...` harus tetap hijau.
+3. Lanjut S13 (deploy FE): import `bandung-sport-web` ke project Vercel
+   kedua, build `npm run build`, output `dist`, env `VITE_API_URL` = URL BE,
+   `vercel.json` rewrites SPA fallback. *Selesai:* refresh di
+   `/tempat/v-...` tidak 404 di HP.
+4. S14 (input data dari outreach) lalu S15 -- di sinilah tes 5 detik +
+   pertanyaan "ini buat apa" dijalankan ke manusia sungguhan. Kalau gagal,
+   yang diotak-atik adalah **subline** (tagline sudah dikunci, dan founder
+   menolak kata "harga" di header -- lihat docs/copy/header.md § 1).
 
 ## JEBAKAN YANG PERLU DIINGAT
 - Founder sudah menolak arah copy ini (jangan diulang): "one stop",

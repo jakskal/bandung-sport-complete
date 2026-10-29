@@ -100,6 +100,13 @@ gagal 1/1). Interpretasi: "list doang" = orang paham bentuknya, tapi bentuk
 list bukan alasan orang pindah dari Google. Sesuai § 4, yang diotak-atik
 kalau Q3 tetap gagal adalah **subline**, bukan tagline.
 
+**Keputusan founder 2026-10-29:** tes screenshot **ditunda**, tidak
+dilanjutkan ke responden #2/#3 sekarang. Validasi dipindah ke S15 (kirim
+link live ke 5 orang + tes 5 detik) — reaksi pada link asli lebih jujur
+daripada reaksi pada screenshot. Konsekuensi yang diterima: S12 tetap
+**belum dicentang**; kalau S15 menunjukkan orang tidak menangkap pembeda,
+yang direvisi adalah subline, bukan komponen atau tagline.
+
 ## 7. Catatan implementasi (buat founder)
 
 - `<title>` rute `/`: **"Bandung Sport — Direktori olahraga Bandung"**

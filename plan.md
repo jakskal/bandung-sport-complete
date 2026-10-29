@@ -265,8 +265,11 @@ Keputusan kunci:
   Sport — Direktori olahraga Bandung", subline "Kita bantu cari tempat
   olahraga — kamu tinggal pilih" (founder menolak kata "harga" di header —
   alasannya: user lihat harga di kartu). **Hasil tes 1 orang: "oh list
-  doang"** = gagal Q3 (tidak terasa beda dari Google). Sisa: 2 orang lagi,
-  lalu keputusan revisi copy. Gerbang S12 belum boleh dicentang.
+  doang"** = Q1 lulus (paham bentuknya), Q3 gagal (tidak terasa beda dari
+  Google). Keputusan founder: tes screenshot **ditunda, dipindah ke S15**
+  (reaksi pada link live lebih jujur daripada pada screenshot). S12 sengaja
+  dibiarkan belum dicentang — kalau S15 nanti gagal, yang direvisi subline,
+  bukan komponen. Sesi aktif: **S8 — deploy BE**, lalu S13 (deploy FE).
   Lint+build+`go test` hijau.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)

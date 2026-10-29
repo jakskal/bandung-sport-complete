@@ -59,7 +59,8 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   + meta description + `lang="id"` sudah commit (`fe@45d2b14`..`3738531`);
   copy final di `docs/copy/header.md`. **Belum lulus gerbang**: 1 orang
   menjawab "oh list doang" di tes 5 detik → Q3 (pembeda dari Google) gagal.
-  Perlu 2 responden lagi + keputusan revisi subline sebelum S12 dicentang.
+  Keputusan 2026-10-29: tes screenshot **ditunda ke S15** (link live), S12
+  sengaja belum dicentang. Sesi aktif sekarang **S8 (deploy BE)**.
 - Root repo: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
   2026-10-29. `fe/` + `be/` sudah ter-push.
 

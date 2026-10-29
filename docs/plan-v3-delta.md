@@ -211,6 +211,11 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   Belum ada pemilih mode — mode baru ada setelah S17/S20. *Selesai
   kalau:* 2 dari 3 orang bisa jawab "ini buat apa" dalam 5 detik dari
   screenshot.
+  *Catatan 2026-10-29 (dibuat, belum lulus):* `fe@45d2b14`..`3738531` —
+  komponen `Header` + `--fs-hero` + CTA anchor + `<title>`/meta/`lang`
+  selesai; copy di `docs/copy/header.md`. 1 responden: "oh list doang".
+  Tes 5 detik **dipindah ke S15** (keputusan founder) — checkbox ini
+  sengaja belum dicentang, jangan dianggap selesai.
 - [ ] **S13 — Deploy FE (Vercel, preset Vite)** (F; A jelaskan config).
   Import repo `bandung-sport-web` ke project Vercel kedua; build
   `npm run build`, output `dist`, env `VITE_API_URL` = URL BE Vercel.
