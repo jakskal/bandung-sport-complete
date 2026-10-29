@@ -11,15 +11,20 @@
 
 | Slot | Teks | Karakter | Batas |
 |---|---|---|---|
-| Tagline | **Bandung. Ayo olahraga.** | 22 | ≤60 ✅ |
+| Tagline | **Bandung Sport — Direktori olahraga Bandung** | 42 | ≤60 ✅ |
 | Subline | **Kita bantu cari tempat olahraga — kamu tinggal pilih** | 52 | ≤110 ✅ |
 | CTA | **Lihat semua tempat** | — | anchor ke list |
 
-Keputusan 2026-10-29 (founder): subline yang dipakai versi pendek di atas,
-bukan versi harga ("Tahu biayanya sebelum berangkat…"). Konsekuensi yang
-diterima: layar pertama **tidak** menyebut harga; pembeda harga baru muncul
-di kartu (harga hero, S11) dan di CTA halaman detail. Kalau hasil tes 5 detik
-Q1 ≤1/3, calon perbaikan pertama = subline harga yang lama (88 kar.).
+Keputusan 2026-10-29 (founder), tiga revisi dari versi 2026-10-28:
+
+1. **Tagline** diganti dari "Bandung. Ayo olahraga." (22 kar.) ke nama + label
+   di atas (42 kar.). Alasan: orang langsung tahu ini direktori, tidak perlu
+   menyimpulkan dari subline. Konsekuensi diterima: ~3 baris di 390px.
+2. **Subline** pakai versi pendek tanpa kata "harga".
+3. **`<meta name="description">`** = "Tempat olahraga di Bandung." — tanpa
+   daftar cabang (gym/futsal/padel/…) karena cabang akan bertambah, dan tanpa
+   klaim harga. Kalimat panjang yang menyebut cabang ditolak founder (terasa
+   tidak humanis + mengunci cakupan).
 
 ## 2. Fakta data yang membatasi klaim (dicek 2026-10-28)
 
@@ -86,7 +91,12 @@ Kalau Q1 ≤ 1: jangan sentuh tagline, perbaiki subline dulu (§ 4).
 
 - `<title>` rute `/`: **"Bandung Sport — Direktori olahraga Bandung"**
   (keputusan founder 2026-10-29; usulan awal "tahu biayanya sebelum
-  berangkat" tidak dipakai). Preview link WA ambil dari sini.
+  berangkat" tidak dipakai). Ditaruh di `fe/index.html` (bukan hanya
+  `document.title`) karena preview link WA membaca HTML statis.
+- `<meta name="description">`: **"Tempat olahraga di Bandung."** Tanpa daftar
+  cabang olahraga (akan bertambah, dan menyebut 5 nama terasa mengunci
+  cakupan) dan tanpa klaim harga.
+- `<html lang="id">` — pembaca layar + mesin pencari pakai ini.
 - Jangan ulang kalimat harga di tagline **dan** di CTA/section yang sama —
   satu kesempatan per ide di layar pertama.
 - Tombol detail page sudah bilang "Tanya harga via WhatsApp" (S10) — jangan
