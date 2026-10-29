@@ -156,7 +156,7 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   endpoint + env. Tes: 9 kasus `httptest`. Verifikasi: `go test`/`go vet`
   hijau, `docker build` + `docker run -p 18081:8080` →
   `curl /api/venues` length 22, detail FTL = `Sedang` + `priceFrom`.)_
-- [ ] **S8 — Deploy BE ke Vercel (Go preset, gratis, tanpa kartu)** (F; A
+- [x] **S8 — Deploy BE ke Vercel (Go preset, gratis, tanpa kartu)** (F; A
   jelaskan config). **Ditunda 2026-10-22 (keputusan founder): dikerjakan
   sebelum S13, bukan sekarang.** S9–S12 cukup pakai API lokal
   (`http://localhost:8080`); S13 (`VITE_API_URL`) dan S15 (URL live)
@@ -171,6 +171,16 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `go:embed`, update data = commit + auto-deploy. Cadangan kalau Vercel
   Go bermasalah: Koyeb free (container dari Dockerfile).
   *Selesai kalau:* `curl <url>/healthz` 200 dari HP (data seluler).
+  *Dikerjakan & terverifikasi 2026-10-29:* live di
+  **`https://bandung-sport-be.vercel.app`** — `/healthz` 200
+  (`{"offerings":8,"status":"ok","venues":22}`), `/api/venues` 200 +
+  `access-control-allow-origin` muncul. Catatan: baris `ALLOWED_ORIGINS=
+  http://localhost:5173` di instruksi di atas **sudah usang** — production
+  seharusnya hanya origin FE (`be/README.md` § Deploy); realitanya live
+  masih mengizinkan localhost juga (tidak berbahaya — API ini data publik
+  tanpa auth, CORS cuma penjaga browser — tapi bikin README vs konfigurasi
+  Vercel tidak cocok, dan S13 akan nyentuh env yang sama, jadi rapikan di
+  sana). Belum dicek: curl dari HP/data seluler.
 - [x] **S9 ★ — FE baca API (menggantikan plan-v2 malam 6)** (F; A beri 1
   contoh pola `useFetch`). `fe/.env.example` + `VITE_API_URL`;
   `src/api/client.js` (`fetchVenues()`, `fetchVenue(id)`, lempar error

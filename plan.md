@@ -269,8 +269,10 @@ Keputusan kunci:
   Google). Keputusan founder: tes screenshot **ditunda, dipindah ke S15**
   (reaksi pada link live lebih jujur daripada pada screenshot). S12 sengaja
   dibiarkan belum dicentang — kalau S15 nanti gagal, yang direvisi subline,
-  bukan komponen. Sesi aktif: **S8 — deploy BE**, lalu S13 (deploy FE).
-  Lint+build+`go test` hijau.
+  bukan komponen. **S8 terverifikasi sudah live**
+  (`https://bandung-sport-be.vercel.app`: `/healthz` 200, `/api/venues` 200,
+  header CORS muncul; belum dicek dari HP/data seluler). Sesi aktif:
+  **S13 — deploy FE**. Lint+build+`go test` hijau.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

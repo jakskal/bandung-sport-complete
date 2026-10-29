@@ -60,7 +60,9 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   copy final di `docs/copy/header.md`. **Belum lulus gerbang**: 1 orang
   menjawab "oh list doang" di tes 5 detik → Q3 (pembeda dari Google) gagal.
   Keputusan 2026-10-29: tes screenshot **ditunda ke S15** (link live), S12
-  sengaja belum dicentang. Sesi aktif sekarang **S8 (deploy BE)**.
+  sengaja belum dicentang. **S8 terverifikasi sudah LIVE**
+  (`https://bandung-sport-be.vercel.app`, 2026-10-29) — sesi aktif sekarang
+  **S13 (deploy FE)**.
 - Root repo: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
   2026-10-29. `fe/` + `be/` sudah ter-push.
 

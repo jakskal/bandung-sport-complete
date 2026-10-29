@@ -3,8 +3,8 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-29** (S12 masih berjalan — terhambat tes 5
-> detik, bukan terhambat kode).
+> Terakhir diperbarui: **2026-10-29** (S12 tertunda di gerbang tes; S8
+> terverifikasi live; sesi aktif = S13 deploy FE).
 
 ---
 
@@ -49,9 +49,9 @@ React sekaligus punya portofolio full-stack live.
   be/   repo github.com/jakskal/bandung-sport-be  (Go stdlib, go:embed)
 
 ## STATUS TERKINI (2026-10-29)
-- S2–S7, S9, S10, S11 SELESAI. S8 (deploy BE) ditunda ke sebelum S13, TAPI
-  konfigurasi Vercel-nya sudah masuk `be@6cffbda` (README + `.vercel`) dan
-  sudah push.
+- S2–S7, S9, S10, S11 SELESAI. **S8 SELESAI + terverifikasi live** 2026-10-29
+  (`https://bandung-sport-be.vercel.app`); config Vercel ada di `be@6cffbda`.
+  Yang masih terbuka: `ALLOWED_ORIGINS` production masih ikut localhost.
 - S12 BERJALAN, kodenya selesai: `fe@45d2b14` (Header + CTA anchor) ..
   `fe@3738531` (title/meta/lang). Lint, build, `go test ./...` hijau.
 - **Gerbang S12 belum lulus:** tes 5 detik baru 1 responden, jawabannya
@@ -62,17 +62,29 @@ React sekaligus punya portofolio full-stack live.
 1. JANGAN nyuruh founder menjalankan tes 5 detik screenshot -- keputusan
    2026-10-29: tes DIPINDAH ke S15 (link live ke 5 orang). S12 dibiarkan
    BELUM dicentang; itu disengaja, bukan kelupaan.
-2. Kerjakan S8 (deploy BE ke Vercel): config sudah ada di `be@6cffbda`
-   (`vercel.json` Go preset + README). Catat URL production, isi
-   `ALLOWED_ORIGINS` dengan origin FE, `go test ./...` harus tetap hijau.
-3. Lanjut S13 (deploy FE): import `bandung-sport-web` ke project Vercel
-   kedua, build `npm run build`, output `dist`, env `VITE_API_URL` = URL BE,
-   `vercel.json` rewrites SPA fallback. *Selesai:* refresh di
-   `/tempat/v-...` tidak 404 di HP.
-4. S14 (input data dari outreach) lalu S15 -- di sinilah tes 5 detik +
-   pertanyaan "ini buat apa" dijalankan ke manusia sungguhan. Kalau gagal,
-   yang diotak-atik adalah **subline** (tagline sudah dikunci, dan founder
-   menolak kata "harga" di header -- lihat docs/copy/header.md § 1).
+2. S8 SUDAH LIVE (diverifikasi 2026-10-29 lewat curl):
+   https://bandung-sport-be.vercel.app -- /healthz 200
+   ({"offerings":8,"status":"ok","venues":22}), /api/venues 200, header
+   access-control-allow-origin muncul. Yang belum: cek dari HP pakai data
+   seluler (bukan cuma laptop), dan rapikan env ALLOWED_ORIGINS -- live
+   masih mengizinkan http://localhost:5173 padahal README § Deploy bilang
+   production hanya origin FE. Tidak berbahaya (data publik, tanpa auth),
+   cuma README vs konfigurasi tidak cocok.
+3. Kerjakan S13 (deploy FE ke Vercel, preset Vite) -- ini sesi aktif:
+   - `vercel.json` di `fe/`: rewrites SPA fallback
+     `{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }`
+     supaya refresh di /tempat/v-... tidak 404.
+   - Project Vercel kedua, Root Directory `fe/`, build `npm run build`,
+     output `dist`, env `VITE_API_URL=https://bandung-sport-be.vercel.app`.
+   - Setelah URL FE production jadi: tambahkan origin-nya ke
+     `ALLOWED_ORIGINS` di project BE + redeploy (perubahan env hanya berlaku
+     untuk deployment baru).
+   - Vercel Web Analytics untuk pageview (event klik custom tetap S20).
+   - *Selesai:* refresh di `/tempat/v-...` tidak 404, di HP.
+4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
+   + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
+   live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan
+   founder menolak kata "harga" di header -- lihat docs/copy/header.md § 1).
 
 ## JEBAKAN YANG PERLU DIINGAT
 - Founder sudah menolak arah copy ini (jangan diulang): "one stop",
@@ -135,8 +147,8 @@ Error API: {"error":"not found"}; 405 punya header Allow.
 | S10 | selesai | detail page v2 (`fe@51252d5`, data `be@fa1e254`) |
 | S11 | selesai | hierarki card price-first (`fe@dea16b7`) |
 | S12 | **berjalan** | header: kode selesai, gerbang tes 5 detik belum lulus |
-| S8 | konfigurasi siap | deploy BE (`be@6cffbda`) — jalankan sebelum S13 |
-| S13 | berikutnya | deploy FE (Vercel preset Vite) + analytics |
+| S8 | **selesai** | deploy BE live di `bandung-sport-be.vercel.app` (2026-10-29) |
+| S13 | **sesi aktif** | deploy FE (Vercel preset Vite) + analytics |
 | S14–S15 | | feedback 5–10 orang, concierge, README + CV |
 
 Detail lengkap: `docs/plan-v3-delta.md` § 2.
