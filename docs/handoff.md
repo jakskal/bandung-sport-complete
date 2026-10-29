@@ -50,7 +50,8 @@ React sekaligus punya portofolio full-stack live.
 
 ## STATUS TERKINI (2026-10-29)
 - S2–S7, S9, S10, S11 SELESAI. **S8 SELESAI + terverifikasi live** 2026-10-29
-  (`https://bandung-sport-be.vercel.app`); config Vercel ada di `be@6cffbda`.
+  (`https://bandung-sport-be.vercel.app`); `vercel.json` (`framework: go`)
+  ditambahkan di `be@946f739`.
   Yang masih terbuka: `ALLOWED_ORIGINS` production masih ikut localhost.
 - S12 BERJALAN, kodenya selesai: `fe@45d2b14` (Header + CTA anchor) ..
   `fe@3738531` (title/meta/lang). Lint, build, `go test ./...` hijau.
@@ -101,9 +102,11 @@ React sekaligus punya portofolio full-stack live.
   priceVisibility undefined -> fallback 'unknown'.
 - `client.js` sekarang baca `VITE_API_URL` (sudah disamakan, `fe@7481833`).
 - Belum diverifikasi founder: `fe/.gitignore` punya baris mencurigakan
-  `ga n` (belum di-commit, terlihat seperti keystroke nyasar) dan `be`
-  commit `6cffbda` isinya cuma `.gitignore` tapi pesannya `fix(html)` --
-  pesan commit salah tempel dari fe.
+  `ga n` (belum di-commit, terlihat seperti keystroke nyasar).
+- Selesai 2026-10-29: pesan commit BE yang salah tempel (`fix(html)` padahal
+  isinya `.gitignore`) sudah ditulis ulang jadi `chore(gitignore): exclude
+  Vercel metadata and env files` = `be@bad7973` (force-push --force-with-lease
+  atas perintah founder; hash lama `6cffbda` tidak ada lagi).
 
 ## CARA MENJALANKAN
 Node: wajib pakai ~/.n/bin (v22); `node` default v16.
@@ -157,9 +160,10 @@ Detail lengkap: `docs/plan-v3-delta.md` § 2.
 
 - `fe/` HEAD `3738531`, ter-push, working tree bersih **kecuali** `M
   .gitignore` (baris `ga n` — belum diputuskan).
-- `be/` HEAD `6cffbda`, ter-push, `go test ./...` hijau.
+- `be/` HEAD `bad7973`, ter-push, `go test ./...` hijau.
 - Root: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
-  2026-10-29, gitlink `be` dibump ke `6cffbda`.
+  2026-10-29, gitlink `be` menunjuk `bad7973` (hash lama `6cffbda` digantikan
+  setelah pesan commit-nya ditulis ulang).
 - Endpoint: hanya 3 (list, detail, health). Tidak ada DB, tidak ada auth.
 - Data: 22 venue, 8 penawaran berharga publik, `lastVerified` 2026-10-22.
 
