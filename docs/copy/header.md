@@ -1,0 +1,97 @@
+# Copy header (S12) — KEPUTUSAN FINAL
+
+> Kriteria sesi: `docs/plan-v3-delta.md` § 2 S12 — tagline besar + sub 1
+> kalimat + CTA "Lihat semua tempat". *Selesai kalau:* 2 dari 3 orang bisa
+> jawab "ini buat apa" dalam 5 detik.
+> **Status: teks final dikunci 2026-10-29** (revisi subline & `<title>`;
+> versi 2026-10-28 diganti). Implementasi (`Header.jsx`, `<title>`) ditulis
+> founder, commit `fe@45d2b14`.
+
+## 1. Pasangan yang dipakai
+
+| Slot | Teks | Karakter | Batas |
+|---|---|---|---|
+| Tagline | **Bandung. Ayo olahraga.** | 22 | ≤60 ✅ |
+| Subline | **Kita bantu cari tempat olahraga — kamu tinggal pilih** | 52 | ≤110 ✅ |
+| CTA | **Lihat semua tempat** | — | anchor ke list |
+
+Keputusan 2026-10-29 (founder): subline yang dipakai versi pendek di atas,
+bukan versi harga ("Tahu biayanya sebelum berangkat…"). Konsekuensi yang
+diterima: layar pertama **tidak** menyebut harga; pembeda harga baru muncul
+di kartu (harga hero, S11) dan di CTA halaman detail. Kalau hasil tes 5 detik
+Q1 ≤1/3, calon perbaikan pertama = subline harga yang lama (88 kar.).
+
+## 2. Fakta data yang membatasi klaim (dicek 2026-10-28)
+
+- 22 venue, **8 penawaran berharga publik** → haram: "lengkap", "termurah",
+  "semua ada harganya".
+- Rentang nyata: Rp0 (lintasan lari) – Rp2.500.000/bln (membership fitness).
+- Satuan di data: `monthly`, `per-hour`, `per-visit`. Area: Dago, Cibiru,
+  Arcamanik, Setiabudi, Lembang.
+- Padel: 0 penawaran berharga → jangan dipakai sebagai contoh harga.
+
+## 3. Aturan yang keluar dari 7 putaran diskusi (simpan, jangan diulang)
+
+| Putaran | Yang kamu tolak | Pelajaran buat copy berikutnya |
+|---|---|---|
+| 1 | "Olahraga di Bandung, harganya kelihatan" | Bahasa terlalu rapi, nggak ada identitas. |
+| 2 | "Olga di Bandung mah kudu jelas ongkosna" | **Jangan maksa kata lokal.** Identitas datang dari ritme, bukan tempelan. |
+| 3 | "Solusi cerdas…" / "Platform direktori…" | Klise iklan = langsung kalah. |
+| 4 | "One stop olahraga di Bandung" | Klaim payung bukan positioning: nggak membedakan dari Google Maps, dan janji transaksional yang belum ada. |
+| 5 | "Buku harga…", "Kamus…", "Panduan…" | Subjek **benda** = nameplate. Headline benda nggak akan pernah terasa manusia. |
+| 6 | "Aku cariin tempat olahraga Bandung…" | Subjek **"aku"** = one-man show. Arah produk ini partisipatif. "Kami" juga belum (kolektifnya belum ada). |
+| 7 | "Harganya pasti ada", "Tinggal pilih" | Masih **terasa iklan** karena menawarkan. → keputusan: pendek & besar, nol nada jualan. |
+
+**Aturan yang tersisa:** headline tidak menjelaskan produk dan tidak merayu;
+subline yang bekerja menjelaskan. Brand-nya orang-orangan, bukan
+mengidentifikasi.
+
+## 4. Kenapa F4 menang (dan risiko yang kamu terima)
+
+Yang bikin aman: "Bandung" sudah di nama brand + logo, dan subline langsung
+menyebut "biaya", "harga", "kontak" — jadi informasi "ini apa" tetap ada,
+hanya saja tidak dipikul tagline.
+
+**Risiko yang kamu terima sadar:** tagline 22 karakter tanpa kata "olahraga"
+dan tanpa harga = tugas menjawab "ini buat apa" 100% pindah ke subline. Kalau
+tes 5 detik gagal, yang harus diperbaiki **bukan** taglinenya — tapi panjang
+atau urutan subline (pakai cadangan § 1), atau memastikan logo/nama brand
+cukup besar di atasnya.
+
+## 5. Loop kontribusi (fase berikutnya, bukan sekarang)
+
+Headline tidak menyebut pembuatnya, jadi baris kontribusi bisa naik tanpa
+rebranding:
+
+- Sekarang (opsional, kecil, di bawah list): "Datanya dibantu warga Bandung."
+- Saat fitur kontribusi / mode Bareng (Bulan 2): "Ada yang salah atau belum
+  update? Sampaikan — kami catat sumber dan tanggalnya."
+
+## 6. Tes 5 detik (3 orang, warga Bandung 18–35, bukan developer)
+
+Screenshot header saja, lebar 390px, tampil **5 detik**, lalu disembunyikan.
+
+| # | Pertanyaan | Lulus kalau |
+|---|---|---|
+| Q1 | "Kamu lihat apa tadi? Buat apa?" | menyebut cari tempat olahraga di Bandung |
+| Q2 | "Kalau mau olahraga nanti sore, apa yang kamu dapat dari situ?" | jawaban konkret: nama tempat, angka/satuan harga, atau "ada yang gratis" |
+| Q3 | "Bedanya apa sama cari `gym di Bandung` di Google?" | menyebut harga tertulis / nggak perlu nanya DM |
+| Q4 | "Kalau ada harga yang salah, apa yang kamu lakuin?" | menyebut ada tempat buat ngabarin |
+
+Ambang lulus: **Q1 ≥ 2 dari 3** (gerbang S12) **dan Q3 ≥ 1 dari 3**. Q4
+dicatat saja, belum menggagalkan — fitur kontribusinya memang belum ada.
+Kalau Q1 ≤ 1: jangan sentuh tagline, perbaiki subline dulu (§ 4).
+
+## 7. Catatan implementasi (buat founder)
+
+- `<title>` rute `/`: **"Bandung Sport — Direktori olahraga Bandung"**
+  (keputusan founder 2026-10-29; usulan awal "tahu biayanya sebelum
+  berangkat" tidak dipakai). Preview link WA ambil dari sini.
+- Jangan ulang kalimat harga di tagline **dan** di CTA/section yang sama —
+  satu kesempatan per ide di layar pertama.
+- Tombol detail page sudah bilang "Tanya harga via WhatsApp" (S10) — jangan
+  pakai "Nanya harga kok lewat DM" di header, ide yang sama dua kali.
+- CTA "Lihat semua tempat" = anchor ke list. Belum ada pemilih mode di header
+  (mode baru ada setelah S17/S20).
+- Font: tagline 22 karakter = ~1 baris di 390px dengan tipografi hero. Kalau
+  dipaksa 2–3 baris cuma buat kelihatan besar, itu kalah di tes 5 detik.
