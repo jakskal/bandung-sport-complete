@@ -3,8 +3,8 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-29** (S12 tertunda di gerbang tes; S8
-> terverifikasi live; sesi aktif = S13 deploy FE).
+> Terakhir diperbarui: **2026-10-29** (S12 tertunda di gerbang tes; **S8 &
+> S13 sudah live**; sesi aktif berikutnya S14 → S15).
 
 ---
 
@@ -55,6 +55,13 @@ React sekaligus punya portofolio full-stack live.
   Yang masih terbuka: `ALLOWED_ORIGINS` production masih ikut localhost.
 - S12 BERJALAN, kodenya selesai: `fe@45d2b14` (Header + CTA anchor) ..
   `fe@3738531` (title/meta/lang). Lint, build, `go test ./...` hijau.
+- **S13 SELESAI + terverifikasi live** 2026-10-29 lewat curl:
+  `https://bandung-sport-web.vercel.app` -> root 200, deep link
+  `/tempat/v-urban-gym` 200 (rewrite SPA di `fe/vercel.json` berfungsi,
+  sudah ke-track di `fe@7481833`), bundle produksi memanggil
+  `bandung-sport-be.vercel.app` (nol `localhost:8080` = `VITE_API_URL`
+  ter-set di project Vercel), `<title>`+meta live identik dengan build HEAD.
+  Belum diverifikasi: refresh dari HP/data seluler, Vercel Web Analytics.
 - **Gerbang S12 belum lulus:** tes 5 detik baru 1 responden, jawabannya
   "oh list doang" -> paham bentuknya (Q1) tapi tidak menangkap pembeda (Q3).
   Ambang: Q1 >= 2/3 DAN Q3 >= 1/3.
@@ -71,17 +78,20 @@ React sekaligus punya portofolio full-stack live.
    masih mengizinkan http://localhost:5173 padahal README § Deploy bilang
    production hanya origin FE. Tidak berbahaya (data publik, tanpa auth),
    cuma README vs konfigurasi tidak cocok.
-3. Kerjakan S13 (deploy FE ke Vercel, preset Vite) -- ini sesi aktif:
-   - `vercel.json` di `fe/`: rewrites SPA fallback
-     `{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }`
-     supaya refresh di /tempat/v-... tidak 404.
-   - Project Vercel kedua, Root Directory `fe/`, build `npm run build`,
-     output `dist`, env `VITE_API_URL=https://bandung-sport-be.vercel.app`.
-   - Setelah URL FE production jadi: tambahkan origin-nya ke
-     `ALLOWED_ORIGINS` di project BE + redeploy (perubahan env hanya berlaku
-     untuk deployment baru).
-   - Vercel Web Analytics untuk pageview (event klik custom tetap S20).
-   - *Selesai:* refresh di `/tempat/v-...` tidak 404, di HP.
+3. S13 SUDAH LIVE juga (lihat STATUS di atas) -- jangan kerjakan ulang
+   deploy-nya. Yang tersisa cuma tiga verifikasi, semuanya di sisi founder:
+   - Buka https://bandung-sport-web.vercel.app/tempat/v-urban-gym dari HP
+     pakai **data seluler** lalu tekan refresh. Ini bunyi gerbang S8 dan S13
+     (`plan-v3-delta.md` § 2) dan belum pernah diuji -- curl dari laptop
+     bukan penggantinya.
+   - Cek Vercel Web Analytics terpasang di project FE (S13 minta pageview;
+     event klik custom tetap S20).
+   - Rapikan `ALLOWED_ORIGINS` project BE: buang `http://localhost:5173`,
+     simpan origin FE production (+ preview kalau dipakai), lalu redeploy --
+     perubahan env hanya berlaku untuk deployment baru. Setelah itu
+     `be/README.md` § Deploy jadi benar.
+   Centang S8 + S13 di `docs/plan-v3-delta.md` § 2 hanya setelah tes HP lewat.
+4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
 4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
    live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan
@@ -150,8 +160,8 @@ Error API: {"error":"not found"}; 405 punya header Allow.
 | S10 | selesai | detail page v2 (`fe@51252d5`, data `be@fa1e254`) |
 | S11 | selesai | hierarki card price-first (`fe@dea16b7`) |
 | S12 | **berjalan** | header: kode selesai, gerbang tes 5 detik belum lulus |
-| S8 | **selesai** | deploy BE live di `bandung-sport-be.vercel.app` (2026-10-29) |
-| S13 | **sesi aktif** | deploy FE (Vercel preset Vite) + analytics |
+| S8 | **selesai (live)** | BE `bandung-sport-be.vercel.app` — `/healthz` 200 |
+| S13 | **selesai (live, verifikasi HP tersisa)** | FE `bandung-sport-web.vercel.app` — deep link 200, bundle panggil BE production |
 | S14–S15 | | feedback 5–10 orang, concierge, README + CV |
 
 Detail lengkap: `docs/plan-v3-delta.md` § 2.

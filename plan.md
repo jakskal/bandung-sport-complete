@@ -269,10 +269,15 @@ Keputusan kunci:
   Google). Keputusan founder: tes screenshot **ditunda, dipindah ke S15**
   (reaksi pada link live lebih jujur daripada pada screenshot). S12 sengaja
   dibiarkan belum dicentang — kalau S15 nanti gagal, yang direvisi subline,
-  bukan komponen. **S8 terverifikasi sudah live**
-  (`https://bandung-sport-be.vercel.app`: `/healthz` 200, `/api/venues` 200,
-  header CORS muncul; belum dicek dari HP/data seluler). Sesi aktif:
-  **S13 — deploy FE**. Lint+build+`go test` hijau.
+  bukan komponen. **S8 & S13 sudah live** (diverifikasi 2026-10-29 lewat
+  curl): FE `bandung-sport-web.vercel.app` (root 200, deep link
+  `/tempat/v-urban-gym` 200 = rewrite SPA jalan, bundle panggil BE
+  production, `<title>`/meta identik dengan build HEAD) + BE
+  `bandung-sport-be.vercel.app` (`/healthz` 200). Target 4 minggu
+  "FE React + BE Go live" tercapai hari ke-12. Yang tersisa: tes refresh
+  dari HP/data seluler, verifikasi Analytics, `ALLOWED_ORIGINS` BE masih
+  ikut localhost. Sesi aktif: **S14 (input data) → S15 (kirim ke orang)**.
+  Lint+build+`go test` hijau.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
