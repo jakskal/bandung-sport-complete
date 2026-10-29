@@ -87,6 +87,19 @@ Ambang lulus: **Q1 ≥ 2 dari 3** (gerbang S12) **dan Q3 ≥ 1 dari 3**. Q4
 dicatat saja, belum menggagalkan — fitur kontribusinya memang belum ada.
 Kalau Q1 ≤ 1: jangan sentuh tagline, perbaiki subline dulu (§ 4).
 
+### Hasil tes (dikerjakan 2026-10-29)
+
+| Responden | Jawaban mentah | Dibaca sebagai |
+|---|---|---|
+| #1 | "oh list doang" | Q1 **lulus** (paham ini daftar tempat), Q3 **gagal** (tidak ada sinyal "ini beda dari Google — harganya ditulis") |
+| #2 | belum | — |
+| #3 | belum | — |
+
+Status gerbang: **belum lulus** (kuota responden belum 3, dan Q3 sudah
+gagal 1/1). Interpretasi: "list doang" = orang paham bentuknya, tapi bentuk
+list bukan alasan orang pindah dari Google. Sesuai § 4, yang diotak-atik
+kalau Q3 tetap gagal adalah **subline**, bukan tagline.
+
 ## 7. Catatan implementasi (buat founder)
 
 - `<title>` rute `/`: **"Bandung Sport — Direktori olahraga Bandung"**

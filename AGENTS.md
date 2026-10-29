@@ -55,8 +55,13 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   **S11 SELESAI 2026-10-28** (`fe@dea16b7`): `TierBadge` pill, kartu
   price-first (nama+badge → harga hero → meta kecil), chip aktif `--brand`,
   token `--fs-price`/`--radius-card`/`--brand`.
-- `fe/` sudah di-clone ulang di laptop baru (HEAD `0e0faf2`), belum ada
-  perubahan. Dokumen root belum di-commit.
+  **S12 BERJALAN (2026-10-29)**: komponen `Header/` + CTA anchor + `<title>`
+  + meta description + `lang="id"` sudah commit (`fe@45d2b14`..`3738531`);
+  copy final di `docs/copy/header.md`. **Belum lulus gerbang**: 1 orang
+  menjawab "oh list doang" di tes 5 detik → Q3 (pembeda dari Google) gagal.
+  Perlu 2 responden lagi + keputusan revisi subline sebelum S12 dicentang.
+- Root repo: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
+  2026-10-29. `fe/` + `be/` sudah ter-push.
 
 ## Status lama (per 2026-09-24 s/d 2026-10-13) — sejarah, bukan instruksi
 

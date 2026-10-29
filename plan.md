@@ -257,6 +257,17 @@ Keputusan kunci:
   dirinya (weight/margin), halaman mengurus ukuran (`.place-card
   .price-tag`), supaya baris paket di detail tidak ikut jadi hero.
   Lint+build hijau. Sesi berikutnya: **S12 — header "ini apa"**.
+- **Sesi 2026-10-29 — S12 BERJALAN, tes 5 detik belum lulus.** Kode header
+  selesai (`fe@45d2b14`..`3738531`): komponen `Header/` + token `--fs-hero`,
+  CTA anchor ke `<section id="tempat-list">`, `lang="id"` + `<title>` + meta
+  description, jebakan `VITE_API_BASE_URL` → `VITE_API_URL` beres
+  (`fe@7481833`). Copy dikunci di `docs/copy/header.md`: tagline "Bandung
+  Sport — Direktori olahraga Bandung", subline "Kita bantu cari tempat
+  olahraga — kamu tinggal pilih" (founder menolak kata "harga" di header —
+  alasannya: user lihat harga di kartu). **Hasil tes 1 orang: "oh list
+  doang"** = gagal Q3 (tidak terasa beda dari Google). Sisa: 2 orang lagi,
+  lalu keputusan revisi copy. Gerbang S12 belum boleh dicentang.
+  Lint+build+`go test` hijau.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

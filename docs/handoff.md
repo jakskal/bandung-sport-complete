@@ -3,8 +3,8 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-28** (S11 selesai; S12 sedang berjalan,
-> menunggu keputusan copy tagline).
+> Terakhir diperbarui: **2026-10-29** (S12 masih berjalan — terhambat tes 5
+> detik, bukan terhambat kode).
 
 ---
 
@@ -19,60 +19,83 @@ React sekaligus punya portofolio full-stack live.
 1. /home/user/angling/proj/bandung-sport-complete/AGENTS.md
 2. docs/plan-v3-delta.md § 2 (checklist sesi = sumber kebenaran scope)
 3. plan.md § Status (progres terakhir)
-4. docs/plan-v2.md § 6 (model data), § 7 (arsitektur FE)
+4. docs/copy/header.md (keputusan copy header + hasil tes 5 detik)
+5. docs/plan-v2.md § 6 (model data), § 7 (arsitektur FE)
 
 ## ATURAN KERAS
 - Kode FE yang dirender (komponen, halaman, hook, CSS) DITULIS FOUNDER.
   Kamu: beri arah, review, tunjuk baris yang salah, beri SATU contoh per pola
   kalau founder stuck >30 menit. JANGAN menulis seluruh fitur FE untuknya.
-- Kode Go (be/) boleh kamu tulis (founder mendelegasikan), tapi review-nya
-  belum dilakukan.
+  (Pengecualian yang sudah terjadi dan boleh diulang: tooling/config/kode Go
+  atas permintaan founder.)
+- Kode Go (be/) boleh kamu tulis (founder mendelegasikan), tapi review founder
+  atas S6/S7 masih utang.
 - Scope dikunci. Jangan tambah fitur/dependency/endpoint di luar sesi aktif.
   Ide baru dicatat di plan.md § "Nanti".
 - Jangan mengarang harga/jadwal/kontak/koordinat. Tidak tahu = null.
 - Bahasa diskusi: Indonesia santai. Teks UI: Indonesia. Kode/commit/README:
   Inggris.
-- Tutup sesi: lint+build hijau -> commit+push repo terkait -> centang checkbox
-  di docs/plan-v3-delta.md -> update plan.md § Status + AGENTS.md.
+- Tutup sesi: lint+build+go test hijau -> commit+push repo terkait -> centang
+  checkbox di docs/plan-v3-delta.md -> update plan.md § Status + AGENTS.md +
+  file ini.
 
 ## STRUKTUR REPO
-/home/user/angling/proj/bandung-sport-complete/
+/home/user/angling/proj/bandung-sport-complete/   (root = repo privat: docs)
   docs/plan-v3-delta.md   <- scope & urutan sesi
+  docs/copy/header.md     <- keputusan copy S12 + hasil tes
   plan.md                 <- status per sesi
-  AGENTS.md               <- aturan kerja lengkap
+  AGENTS.md               <- aturan kerja lengkap (CLAUDE.md -> sini)
   fe/   repo github.com/jakskal/bandung-sport-web (Vite + React 19, JS)
-  be/   repo github.com/jakskal/bandung-sport-be (Go stdlib, go:embed)
+  be/   repo github.com/jakskal/bandung-sport-be  (Go stdlib, go:embed)
 
-## STATUS (2026-10-28)
-- S9 SELESAI (fe@d28e599): FE baca API, useFetch, skeleton, error+retry,
-  filter URL olahraga/tier/area, route /tempat/:venueId, data JSON FE dihapus.
-- S10 SELESAI (fe@51252d5): PriceTag, OfferingRow, "Harga dicek <bulan tahun>",
-  CTA WA, empty state. be@fa1e254 set lastVerified=2026-10-22 untuk 8 offering.
-- S11 SELESAI (fe@dea16b7): TierBadge pill, kartu price-first (nama+badge ->
-  harga hero -> meta kecil), chip aktif --brand, token --fs-price/--radius-card.
-  Aturan: PriceTag.css mengurus weight/margin; ukuran hero hanya di
+## STATUS TERKINI (2026-10-29)
+- S2–S7, S9, S10, S11 SELESAI. S8 (deploy BE) ditunda ke sebelum S13, TAPI
+  konfigurasi Vercel-nya sudah masuk `be@6cffbda` (README + `.vercel`) dan
+  sudah push.
+- S12 BERJALAN, kodenya selesai: `fe@45d2b14` (Header + CTA anchor) ..
+  `fe@3738531` (title/meta/lang). Lint, build, `go test ./...` hijau.
+- **Gerbang S12 belum lulus:** tes 5 detik baru 1 responden, jawabannya
+  "oh list doang" -> paham bentuknya (Q1) tapi tidak menangkap pembeda (Q3).
+  Ambang: Q1 >= 2/3 DAN Q3 >= 1/3.
+
+## TUGASMU SEKARANG (urutan)
+1. Founder jalankan tes 5 detik ke 2 orang lagi (screenshot header saja di
+   390px, tampil 5 detik, 4 pertanyaan ada di docs/copy/header.md § 6).
+   Catat jawaban MENTAH, jangan dirapikan.
+2. Kalau Q3 masih 0: revisi **subline** saja (tagline sudah dikunci, dan
+   founder menolak kata "harga" di header -- alasannya tercatat di
+   docs/copy/header.md § 1). Jangan buka lagi perdebatan one-stop/kamus/aku.
+3. Kalau lulus: centang S12 di docs/plan-v3-delta.md § 2, update plan.md
+   § Status + AGENTS.md + file ini, commit root + push.
+4. Baru masuk S8 (deploy BE) lalu S13 (deploy FE, vercel.json SPA fallback,
+   VITE_API_URL, ALLOWED_ORIGINS origin production).
+
+## JEBAKAN YANG PERLU DIINGAT
+- Founder sudah menolak arah copy ini (jangan diulang): "one stop",
+  "kamus/buku harga/panduan" (subjek benda), "aku cariin" (one-man show),
+  bahasa yang "terasa iklan". Yang diterima: pendek + label kategori, suara
+  "kita" (inklusif, bukan "kami").
+- `PriceTag.css` mengurus weight/margin; ukuran hero HANYA lewat
   `.place-card .price-tag` supaya baris paket di detail tetap normal.
-- S12 SEDANG BERJALAN (belum commit). Sudah ada: `components/Header/`
-  (Header.jsx + Header.css), token `--fs-hero`, `<section id="tempat-list">`
-  di ListPage, kandidat copy di `docs/copy/header.md` (tagline masih dicari).
-  Perbaikan yang belum dilakukan:
-  * Header.jsx: ada tanda kutip nyasar di akhir subline (`datang."`)
-  * Header.css media query: `padding: 48px` -> `padding: 48px 0 32px;`
-  * Header.css: `.site-header-cta` perlu `font-weight: 600`
-  * Header.css: pakai `var(--fs-hero)`, jangan hardcode 1.75rem
-  * ListPage: `<Link className="place-card">` + `<article className="place-card">`
-    = kartu bersarang; hapus class dari Link
-  * ListPage: skeleton & error masih di dalam `.filter-container`; pindahkan ke
-    `#tempat-list`, dan sembunyikan filter saat loading/error
-- Sesi berikutnya setelah S12: S13 (deploy FE Vercel). S8 (deploy BE) sengaja
-  ditunda ke sebelum S13.
+- oxlint menolak set-state-in-effect: loading diturunkan saat render (pola
+  prevFetcher), bukan setLoading(true) di dalam useEffect.
+- Nilai fungsi di useState/setter harus dibungkus: useState(() => fn).
+- AbortController dibuat DI DALAM effect (satu controller = satu request).
+- formatPrice menerima SATU objek. priceFrom di-spread, jangan dilempar utuh.
+  priceVisibility undefined -> fallback 'unknown'.
+- `client.js` sekarang baca `VITE_API_URL` (sudah disamakan, `fe@7481833`).
+- Belum diverifikasi founder: `fe/.gitignore` punya baris mencurigakan
+  `ga n` (belum di-commit, terlihat seperti keystroke nyasar) dan `be`
+  commit `6cffbda` isinya cuma `.gitignore` tapi pesannya `fix(html)` --
+  pesan commit salah tempel dari fe.
 
 ## CARA MENJALANKAN
 Node: wajib pakai ~/.n/bin (v22); `node` default v16.
   export PATH="$HOME/.n/bin:$PATH"
 BE: cd be && ALLOWED_ORIGINS=http://localhost:5173 make run   (port 8080)
+    (root punya `make run-be` untuk yang sama)
 FE: cd fe && npm run dev                                      (port 5173)
-Cek: npm run lint && npm run build
+Cek: npm run lint && npm run build ; cd be && go test ./...
 API: GET /api/venues, GET /api/venues/{id}, GET /health
 
 ## BENTUK DATA API
@@ -85,26 +108,15 @@ Offering = { id, title, sport, priceMin, priceMax, priceUnit,
   priceVisibility ("public"|"on-request"|"unknown"), lastVerified, ... }
 Error API: {"error":"not found"}; 405 punya header Allow.
 
-## JEBAKAN YANG SUDAH DITEMUKAN (jangan diulang)
-- formatPrice menerima SATU objek, bukan positional args.
-- priceFrom adalah objek -> spread `{...venue.priceFrom}`, jangan
-  `priceMin={venue.priceFrom}`.
-- priceVisibility bisa undefined -> fallback 'unknown'.
-- oxlint menolak set-state-in-effect: loading diturunkan saat render
-  (pola prevFetcher), bukan setLoading(true) di dalam useEffect.
-- Nilai fungsi di useState/setter HARUS dibungkus: useState(() => fn),
-  setPrevFetcher(() => fn) — kalau tidak, React memanggilnya sebagai updater.
-- AbortController harus dibuat DI DALAM effect (satu controller = satu request).
-- Vite: .env.local harus ada sebelum dev server start; nama variabel
-  VITE_API_URL (konstanta di client.js saat ini membaca VITE_API_BASE_URL —
-  perlu disamakan).
-
-## TUGASMU SEKARANG
-1. Selesaikan 5 perbaikan CSS/teks S11 di atas (biarkan founder yang mengetik;
-   tunjuk baris + alasan, bukan menulis seluruh file).
-2. Minta founder menjalankan tes 5 detik (tanya orang: "berapa harganya?").
-3. Lanjut S12 sesuai docs/plan-v3-delta.md § 2 (header "ini apa" + CTA
-   "Lihat semua tempat"; komponen `Header` sendiri; mobile-first ≤390px).
+## UTANG YANG DICATAT
+- Review founder atas kode Go S6/S7 belum dilakukan.
+- `navigate(-1)` di tombol "Kembali" detail page -> share URL bisa keluar app.
+- Detail page menampilkan `venue.priceFrom` sebagai harga utama, bukan
+  ringkasan paket.
+- ListPage: baris "N tempat ditemukan" belum `aria-live`; skeleton/error
+  belum `role="status"`; link sosial belum `aria-label`.
+- Meta description "Tempat olahraga di Bandung." tidak menyebut harga ->
+  konsekuensi ke click-through link WA (diterima founder, bukan lupa).
 ```
 
 ---
@@ -114,35 +126,28 @@ Error API: {"error":"not found"}; 405 punya header Allow.
 | Sesi | Status | Isi |
 |---|---|---|
 | S2–S5 | selesai | token CSS, `formatPrice`, skema v2, migrasi + validator |
-| S6–S7 | selesai | katalog Go + HTTP API + Docker (`be@c471fa2`) |
+| S6–S7 | selesai | katalog Go + HTTP API + Docker |
 | S9 | selesai | FE baca API (`fe@d28e599`) |
 | S10 | selesai | detail page v2 (`fe@51252d5`, data `be@fa1e254`) |
-| S11 | **belum commit** | hierarki card (harga hero + badge tier) |
-| S12 | berikutnya | header "ini apa" + CTA |
-| S13 | | deploy FE (S8 deploy BE diselipkan sebelum ini) |
-| S14–S15 | | feedback 5–10 orang, concierge |
+| S11 | selesai | hierarki card price-first (`fe@dea16b7`) |
+| S12 | **berjalan** | header: kode selesai, gerbang tes 5 detik belum lulus |
+| S8 | konfigurasi siap | deploy BE (`be@6cffbda`) — jalankan sebelum S13 |
+| S13 | berikutnya | deploy FE (Vercel preset Vite) + analytics |
+| S14–S15 | | feedback 5–10 orang, concierge, README + CV |
 
 Detail lengkap: `docs/plan-v3-delta.md` § 2.
 
-## 2. Kondisi teknis per 2026-10-28
+## 2. Kondisi teknis per 2026-10-29
 
-- `fe/` HEAD `51252d5` + perubahan S11 belum di-commit.
-- `be/` HEAD `fa1e254`, test hijau (`go test ./...`).
-- Root repo: gitlink `fe`/`be`, dokumen di-commit terpisah.
-- `src/components/` FE: Place, PriceTag, TierBadge, FilterChips, Offering,
-  Header (Header belum final, lihat status S12).
-- `docs/copy/header.md` berisi kandidat tagline/subline untuk S12.
-- `src/data/` FE tinggal `types.js` (dokumentasi bentuk response API).
-- `scripts/` FE tinggal `check-format-price.mjs`.
-- Endpoint yang ada: hanya 3 (list, detail, health). Tidak ada DB, tidak ada auth.
+- `fe/` HEAD `3738531`, ter-push, working tree bersih **kecuali** `M
+  .gitignore` (baris `ga n` — belum diputuskan).
+- `be/` HEAD `6cffbda`, ter-push, `go test ./...` hijau.
+- Root: `.gitignore` (`.commandcode`, `.qoder`) + `Makefile` di-commit
+  2026-10-29, gitlink `be` dibump ke `6cffbda`.
+- Endpoint: hanya 3 (list, detail, health). Tidak ada DB, tidak ada auth.
+- Data: 22 venue, 8 penawaran berharga publik, `lastVerified` 2026-10-22.
 
 ## 3. Utang teknis yang diketahui
 
-- `client.js` membaca `VITE_API_BASE_URL`, sementara `.env.example` menulis
-  `VITE_API_URL` -> selalu jatuh ke fallback `localhost:8080`. Samakan sebelum
-  deploy (S13).
-- `navigate(-1)` untuk tombol "Kembali" di detail page; kalau halaman dibuka
-  langsung dari share URL, riwayat bisa keluar dari aplikasi.
-- `trace` review kode Go S6/S7 oleh founder belum dilakukan.
-- Halaman detail masih menampilkan `venue.priceFrom` (harga termurah) sebagai
-  harga utama, bukan ringkasan paket.
+Lihat § "UTANG YANG DICATAT" di blok prompt atas — sudah satu tempat, jangan
+diduplikasi.
