@@ -111,8 +111,8 @@ React sekaligus punya portofolio full-stack live.
    Tier (2026-10-30, `be@bf45525` + `fe@8a79956`): band dikunci per
    `(sport, priceUnit)`, fitness punya band `per-visit`. tier null BUKAN
    "harga belum dicek" -- badge tidak dirender, harga tetap tampil. Jangan
-   kembalikan label "Belum dicek" ke `TierBadge`; itu tugas slotharga di
-   `Place.jsx`. Satuan `per-session-pack` sengaja tanpa band sampai durasi
+   kembalikan label "Belum dicek" ke `TierBadge`; itu tugas slot harga
+   di `Place.jsx`. Satuan `per-session-pack` sengaja tanpa band sampai durasi
    sesi diketahui (Urban Gym PT, Peak Padel).
 
 ## JEBAKAN YANG PERLU DIINGAT
