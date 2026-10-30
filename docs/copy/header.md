@@ -87,18 +87,29 @@ Ambang lulus: **Q1 ≥ 2 dari 3** (gerbang S12) **dan Q3 ≥ 1 dari 3**. Q4
 dicatat saja, belum menggagalkan — fitur kontribusinya memang belum ada.
 Kalau Q1 ≤ 1: jangan sentuh tagline, perbaiki subline dulu (§ 4).
 
-### Hasil tes (dikerjakan 2026-10-29)
+### Hasil tes (dikerjakan 2026-10-29, 2 responden)
 
 | Responden | Jawaban mentah | Dibaca sebagai |
 |---|---|---|
 | #1 | "oh list doang" | Q1 **lulus** (paham ini daftar tempat), Q3 **gagal** (tidak ada sinyal "ini beda dari Google — harganya ditulis") |
-| #2 | belum | — |
+| #2 | "Awalnya ga ngerti itu apaan dan harus di apain tapi setelah baca itu kaya rate harga kaya dari murah-biasa-mahal gitu gaksi. Cuma aku ga ngerti setelah kita pilih itu lalu di apakan" | Q1 **setengah** (butuh baca dulu, tidak tertangkap seketika), Q2 **lulus** (menyebut angka/tier harga), Q3 **lulus** (tier murah–mahal disebut spontan = pembeda dari Google), **Q5 baru: gagal** (tidak tahu langkah setelah memilih) |
 | #3 | belum | — |
 
-Status gerbang: **belum lulus** (kuota responden belum 3, dan Q3 sudah
-gagal 1/1). Interpretasi: "list doang" = orang paham bentuknya, tapi bentuk
-list bukan alasan orang pindah dari Google. Sesuai § 4, yang diotak-atik
-kalau Q3 tetap gagal adalah **subline**, bukan tagline.
+Status gerbang: **belum lulus** — Q1 baru 1/2 jelas (ambang 2/3), Q3 1/2
+sudah aman. Dua temuan:
+
+1. **Tier harga bekerja.** #2 menyebut "rate harga murah-biasa-mahal" tanpa
+   ditanya → sinyal pembeda dari Google ada di kartu, bukan di header.
+2. **"Lalu di apakan" tidak terjawab di layar pertama.** Subline sekarang
+   berakhir di "kamu tinggal pilih", jadi memilih terbaca sebagai langkah
+   terakhir. Padahal setelah kartu diklik ada detail + tombol "Tanya harga
+   via WhatsApp" (S10). Kegagalan ini **copy**, bukan komponen: janji di
+   subline berhenti tepat sebelum bagian yang berguna.
+
+Catatan metode: #2 menjawab setelah **membaca** halaman (bukan 5 detik lalu
+ditutup). Artinya masalahnya bukan cuma kecepatan tangkap — bahkan setelah
+sempat membaca, tujuan akhirnya tetap tidak kelihatan. Ini lebih berat dari
+kegagalan 5 detik biasa dan cukup untuk merevisi subline sekarang.
 
 **Keputusan founder 2026-10-29:** tes screenshot **ditunda**, tidak
 dilanjutkan ke responden #2/#3 sekarang. Validasi dipindah ke S15 (kirim
@@ -106,6 +117,23 @@ link live ke 5 orang + tes 5 detik) — reaksi pada link asli lebih jujur
 daripada reaksi pada screenshot. Konsekuensi yang diterima: S12 tetap
 **belum dicentang**; kalau S15 menunjukkan orang tidak menangkap pembeda,
 yang direvisi adalah subline, bukan komponen atau tagline.
+
+### Usulan revisi subline (2026-10-30, BELUM final)
+
+Sasaran: menjawab "lalu di apakan" tanpa kata "harga". Batas ≤110 karakter,
+nada tetap datar (aturan § 3).
+
+| Opsi | Teks | Karakter | Risiko |
+|---|---|---|---|
+| A | Kita bantu cari tempat olahraga — pilih satu, lalu chat pengelolanya. | 69 | "chat" cuma akurat untuk 19/22 venue (3 sisanya IG/website) |
+| B | Kita bantu cari tempat olahraga — pilih satu, lalu lihat kontaknya. | 70 | Aman 22/22, tapi "lihat kontak" kurang mendorong aksi |
+| C | Kita bantu cari tempat olahraga — pilih satu, lalu tanya langsung. | 66 | "tanya" tanpa objek bisa dibaca "tanya-tanya doang" |
+| D | (subline tetap) + kartu diberi penanda bisa dibuka | — | Bukan copy: menyentuh komponen, dan #2 sudah baca sampai list tanpa paham |
+
+Catatan: memperpanjang subline jadi 2 baris di 390px kemungkinan besar
+malah memperlambat tangkapan pertama (#1 "list doang"). Kalau ragu antara A
+dan B, pilih **A** — "chat pengelolanya" adalah bagian yang selama ini tidak
+terlihat, sedangkan 3 venue tanpa WA tetap punya tombol kontak di detail.
 
 ## 7. Catatan implementasi (buat founder)
 

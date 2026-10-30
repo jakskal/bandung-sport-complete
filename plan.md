@@ -280,6 +280,14 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — hasil tes 2 orang (S12/S15)**: #1 "oh list doang"
+  (Q1 lulus, Q3 gagal), #2 paham **setelah membaca** — menyebut tier
+  "murah–mahal" spontan (Q2 & Q3 lulus) tapi "ga ngerti setelah kita pilih
+  itu lalu di apakan". Diagnosis: tier harga bekerja, tapi subline
+  berhenti di "kamu tinggal pilih" sehingga memilih terbaca sebagai
+  langkah terakhir; tombol "Tanya harga via WhatsApp" baru muncul di
+  detail. Gerbang S12 **belum lulus** (Q1 1/2). Usulan subline (A–D)
+  dicatat di `docs/copy/header.md` § 6, menunggu pilihan founder.
 - **Sesi 2026-10-30 — badge tier bohong saat harga ada** (`be@bf45525` +
   `fe@8a79956`): `Tier()` dulu cuma menerima satu satuan per sport
   (`fitness` = monthly), jadi gym yang harganya cuma `per-visit` dapat tier
