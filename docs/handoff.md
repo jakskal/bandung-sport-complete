@@ -3,8 +3,8 @@
 > Dokumen serah-terima untuk AI agent / thread baru. Perbarui setiap sesi
 > selesai (bersama `plan.md` § Status dan `AGENTS.md`).
 >
-> Terakhir diperbarui: **2026-10-29** (S12 tertunda di gerbang tes; **S8 &
-> S13 sudah live**; sesi aktif berikutnya S14 → S15).
+> Terakhir diperbarui: **2026-10-30** (S8 & S13 live; S12 sengaja belum
+> dicentang, gerbang tes dipindah ke S15; sesi aktif: S14 → S15).
 
 ---
 
@@ -38,6 +38,9 @@ React sekaligus punya portofolio full-stack live.
 - Tutup sesi: lint+build+go test hijau -> commit+push repo terkait -> centang
   checkbox di docs/plan-v3-delta.md -> update plan.md § Status + AGENTS.md +
   file ini.
+- Wewenang AI (keputusan founder 2026-10-29): update dokumen root (plan.md,
+  AGENTS.md, docs/**) dan verifikasi state langsung tanpa minta izin, lalu
+  commit+push. Kode FE yang dirender tetap ditulis founder.
 
 ## STRUKTUR REPO
 /home/user/angling/proj/bandung-sport-complete/   (root = repo privat: docs)
@@ -48,7 +51,7 @@ React sekaligus punya portofolio full-stack live.
   fe/   repo github.com/jakskal/bandung-sport-web (Vite + React 19, JS)
   be/   repo github.com/jakskal/bandung-sport-be  (Go stdlib, go:embed)
 
-## STATUS TERKINI (2026-10-29)
+## STATUS TERKINI (2026-10-30)
 - S2–S7, S9, S10, S11 SELESAI. **S8 SELESAI + terverifikasi live** 2026-10-29
   (`https://bandung-sport-be.vercel.app`); `vercel.json` (`framework: go`)
   ditambahkan di `be@946f739`. **S8 dicentang.** Yang dibiarkan atas
@@ -74,14 +77,10 @@ React sekaligus punya portofolio full-stack live.
 1. JANGAN nyuruh founder menjalankan tes 5 detik screenshot -- keputusan
    2026-10-29: tes DIPINDAH ke S15 (link live ke 5 orang). S12 dibiarkan
    BELUM dicentang; itu disengaja, bukan kelupaan.
-2. S8 SUDAH LIVE (diverifikasi 2026-10-29 lewat curl):
+2. S8 SUDAH LIVE DAN TUNTAS (diverifikasi 2026-10-29):
    https://bandung-sport-be.vercel.app -- /healthz 200
    ({"offerings":8,"status":"ok","venues":22}), /api/venues 200, header
-   access-control-allow-origin muncul. Yang belum: cek dari HP pakai data
-   seluler (bukan cuma laptop), dan rapikan env ALLOWED_ORIGINS -- live
-   masih mengizinkan http://localhost:5173 padahal README § Deploy bilang
-   production hanya origin FE. Tidak berbahaya (data publik, tanpa auth),
-   cuma README vs konfigurasi tidak cocok.
+   access-control-allow-origin muncul untuk origin FE.
 3. S8 & S13 SUDAH DICENTANG 2026-10-29 (gerbang HP lolos -- founder tes
    refresh deep link dari HP = oke). Jangan kerjakan ulang deploy-nya.
    DUA hal yang sudah diputuskan founder, jangan dibuka lagi:
@@ -90,7 +89,6 @@ React sekaligus punya portofolio full-stack live.
      memang tidak persis cocok dengan dashboard -- itu diketahui & diterima.
    - Yang masih benar-benar terbuka dari S13 cuma satu: Vercel Web
      Analytics belum dicek terpasang di project FE.
-4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
 4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
    live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan
@@ -110,8 +108,8 @@ React sekaligus punya portofolio full-stack live.
 - formatPrice menerima SATU objek. priceFrom di-spread, jangan dilempar utuh.
   priceVisibility undefined -> fallback 'unknown'.
 - `client.js` sekarang baca `VITE_API_URL` (sudah disamakan, `fe@7481833`).
-- Belum diverifikasi founder: `fe/.gitignore` punya baris mencurigakan
-  `ga n` (belum di-commit, terlihat seperti keystroke nyasar).
+- `fe/.gitignore` sudah rapi (sudah dicek 2026-10-30: `.env.local`, `.vercel`,
+  `.env*`, `!.env.example`, newline di akhir; tidak ada baris `ga n`).
 - Selesai 2026-10-29: pesan commit BE yang salah tempel (`fix(html)` padahal
   isinya `.gitignore`) sudah ditulis ulang jadi `chore(gitignore): exclude
   Vercel metadata and env files` = `be@bad7973` (force-push --force-with-lease
