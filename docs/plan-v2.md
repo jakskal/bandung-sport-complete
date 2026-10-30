@@ -224,21 +224,27 @@ sekarang, bukan kebutuhan tiga fase ke depan.
   alami tiap sport** — bukan lewat `monthlyCost` (yang butuh asumsi
   frekuensi dan jumlah orang; untuk `per-hour` tanpa `groupSize` hasilnya
   null dan semua venue futsal kehilangan tier). Ambang di
-  `src/data/tiers.js`, dikunci per `(sport, priceUnit)`:
+  `src/data/tiers.js`, dikunci per `(sport, priceUnit)` — satu sport boleh
+  punya beberapa satuan, masing-masing dengan ambangnya sendiri:
   ```js
   export const TIER_RULES = {
-    fitness:  { unit: 'monthly',   murah: 200000, sedang: 600000 },
-    swimming: { unit: 'per-visit', murah: 25000,  sedang: 60000 },
-    futsal:   { unit: 'per-hour',  murah: 120000, sedang: 250000 },
-    padel:    { unit: 'per-hour',  murah: 250000, sedang: 450000 },
-    running:  { unit: 'per-visit', murah: 10000,  sedang: 30000 },
+    fitness: {
+      monthly:     { murah: 200000, sedang: 600000 },
+      'per-visit': { murah: 35000,  sedang: 75000  },
+    },
+    swimming: { 'per-visit': { murah: 25000,  sedang: 60000  } },
+    futsal:   { 'per-hour':  { murah: 120000, sedang: 250000 } },
+    padel:    { 'per-hour':  { murah: 250000, sedang: 450000 } },
+    running:  { 'per-visit': { murah: 10000,  sedang: 30000  } },
   }
   ```
   `tier(venue)` = bucket dari `min(priceMin)` atas penawaran `umum` +
-  `public` yang `priceUnit`-nya cocok dengan rule sport itu; `free` atau
-  0 → Gratis; tidak ada yang cocok → null → "Harga belum dicek". Sport
-  tanpa rule → null (tambah rule lewat PR). Angka ambang di atas tebakan
-  awal; setel di ritual mingguan setelah lihat distribusi datanya.
+  `public` yang `priceUnit`-nya punya band untuk sport itu; `free` atau
+  0 → Gratis. Satuan tanpa band (mis. `per-session-pack`, karena durasi
+  sesi tidak diketahui) → tier null **tanpa** menyembunyikan harga: badge
+  tier tidak dirender, harga tetap tampil ("mulai Rp…"). Sport tanpa rule
+  → null (tambah rule lewat PR). Angka ambang di atas tebakan awal; setel
+  di ritual mingguan setelah lihat distribusi datanya.
 - `lastVerified` = tanggal founder/penyelenggara mengonfirmasi dari sumber
   primer. **Tanggal scrape bukan verifikasi.**
 

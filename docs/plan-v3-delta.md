@@ -365,7 +365,8 @@ baru kalau payload >200 KB.
 // VenueSummary — satu kartu
 { "id": "v-ftl-dago", "name": "FTL Gym Dago", "area": "Dago",
   "sports": ["fitness"], "lat": -6.8776, "lng": 107.6155,
-  "tier": "Sedang",                 // null = "Harga belum dicek"
+  "tier": "Sedang",                 // null = tidak ada band utk satuan ini;
+                                    // badge disembunyikan, harga tetap tampil
   "priceFrom": {                    // penawaran public termurah, atau null
     "priceMin": 500000, "priceMax": 2500000,
     "priceUnit": "monthly", "priceVisibility": "public",

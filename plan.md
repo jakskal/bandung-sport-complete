@@ -280,6 +280,15 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — badge tier bohong saat harga ada** (`be@bf45525` +
+  `fe@8a79956`): `Tier()` dulu cuma menerima satu satuan per sport
+  (`fitness` = monthly), jadi gym yang harganya cuma `per-visit` dapat tier
+  null → badge mencetak "Belum dicek" padahal harga tampil. Sekarang band
+  per `(sport, priceUnit)` sesuai plan-v2 § 6, `fitness` dapat band
+  `per-visit` (35rb/75rb, tebakan) → Gym Pod, Komodoz, Diraya jadi `Murah`.
+  `TierBadge` berhenti merender apa pun saat tier null (harga tetap tampil).
+  Masih tidak bertier: Urban Gym (PT 12 sesi) & Peak Padel (per sesi) —
+  satuannya `per-session-pack` dan durasi sesi belum diketahui.
 - **Sesi 2026-10-30 — fix tampilan paket multi-sesi** (`be@a0ee5d8` +
   `fe@df49e44`): `Price.SessionsPerPack` ikut di `/api/venues`, `formatPrice`
   menerima `sessionsPerPack` dan mencetak "mulai Rp700rb /12 sesi". Urban Gym
