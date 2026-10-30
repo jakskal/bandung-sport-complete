@@ -280,6 +280,11 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — fix tampilan paket multi-sesi** (`be@a0ee5d8` +
+  `fe@df49e44`): `Price.SessionsPerPack` ikut di `/api/venues`, `formatPrice`
+  menerima `sessionsPerPack` dan mencetak "mulai Rp700rb /12 sesi". Urban Gym
+  PT 12 sesi dikembalikan ke data (27 offering, 17 venue berharga).
+  Sangkuriang 3 bulan tetap di luar karena enum belum punya `quarterly`.
 - **Sesi 2026-10-30 — S14 bagian B sebagian terisi** (`be@7cca157`): 18
   offering baru dari riset web (total 26 offering; venue berharga 8 → 16 dari
   22), provenance di `docs/data/harga-riset-2026-10-30.md`. Semua
@@ -300,12 +305,11 @@ Keputusan kunci:
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
-- `formatPrice` (FE) belum menampilkan `sessionsPerPack`: paket multi-sesi
-  tampil "/sesi" padahal harganya total paket. Setelah diperbaiki, masukkan
-  lagi Urban Gym PT 12 sesi (700rb) & Sangkuriang 3 bulan (630rb) — dua baris
-  ini sengaja dicoret dari data S14.
-- Enum `priceUnit` belum punya satuan `per-session` (court padel "per sesi")
-  dan `quarterly` (paket 3 bulan); sekarang dipaksa `per-session-pack`.
+- Enum `priceUnit` belum punya `quarterly` (paket 3 bulan) dan
+  `per-session` (court padel "per sesi"). Akibatnya Sangkuriang 3 bulan
+  630rb belum bisa masuk data — kalau dipaksa `per-session-pack` ia tampil
+  "/3 sesi" padahal 3 bulan. Saat enum ditambah, masukkan baris itu.
+  (`sessionsPerPack` sendiri sudah didukung: `be@a0ee5d8` + `fe@df49e44`.)
 
 ## Aturan main (mencegah kegagalan yang lalu)
 

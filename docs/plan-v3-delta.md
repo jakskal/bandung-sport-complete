@@ -255,16 +255,18 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   redeploy BE. *Selesai kalau:* `go test ./...` hijau, data live.
   **(a) Koordinat SELESAI 2026-10-30: 22/22 venue punya lat/lng**
   (`be@b8f977b` 10 venue + `be@9cd3107` Oasis; live terverifikasi lewat
-  `/api/venues`). **(b) Sebagian terisi 2026-10-30: 18 offering baru dari riset web**
-  (`be@7cca157`, total 26 offering; venue berharga 8 → 16 dari 22).
-  Provenance (URL + kutipan + confidence) di
+  `/api/venues`). **(b) Terisi 19 offering dari riset web** (`be@7cca157` 18 baris,
+  `be@a0ee5d8` + Urban Gym PT; total 27 offering, 17 dari 22 venue
+  berharga). Provenance (URL + kutipan + confidence) di
   `docs/data/harga-riset-2026-10-30.md`. Semua `lastVerified` = null
   (scrape ≠ verifikasi) — FE menampilkan harga tanpa badge "Harga dicek".
-  3 baris dicoret saat review: DPC (sumber agregator, kutipan terpotong),
-  Sangkuriang 3 bulan & Urban Gym PT 12 sesi (akan tampil "/sesi" padahal
-  multi-sesi → salah 3×/12×). **Masih terbuka:** konfirmasi vendor untuk
-  mengisi `lastVerified`; Eldorado menunggu status kolam (IG resmi memuat
-  "Informasi PENUTUPAN"). Keputusan founder:
+  Dua baris dicoret: DPC (sumber agregator, kutipan terpotong) dan
+  Sangkuriang membership 3 bulan 630rb (enum `priceUnit` belum punya
+  `quarterly`; lihat plan.md § Nanti). Urban Gym PT 12 sesi sempat dicoret
+  lalu dikembalikan setelah `Price.SessionsPerPack` ditambahkan
+  (`be@a0ee5d8` + `fe@df49e44`) supaya tampil "Rp700rb /12 sesi", bukan
+  "/sesi". **Masih terbuka:** konfirmasi vendor untuk `lastVerified`;
+  Eldorado menunggu status kolam (IG resmi memuat "Informasi PENUTUPAN"). Keputusan founder:
   Lembang & Cimahi tetap dihitung "Bandung" untuk field `area`
   (validator tidak membatasi `area`, batas koordinat −7.2…−6.7 /
   107.4…107.9 sudah mencakup keduanya).
