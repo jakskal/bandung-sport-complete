@@ -276,7 +276,9 @@ Keputusan kunci:
   identik dengan build HEAD) + BE `bandung-sport-be.vercel.app` (`/healthz`
   200). Target 4 minggu "FE React + BE Go live" tercapai hari ke-12.
   Keputusan founder: `ALLOWED_ORIGINS` yang masih ikut localhost dibiarkan
-  (bukan utang). Sisa: cek Vercel Analytics. Sesi aktif: **S14 (input data)
+  (bukan utang). Vercel Analytics terpasang 2026-10-30 (`fe@bea6084`,
+  `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
+  dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)

@@ -245,8 +245,10 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   "diberesin" lagi. API ini data publik tanpa auth, CORS cuma penjaga
   browser. Konsekuensi yang diterima: `be/README.md` § Deploy ("production
   lists the frontend origin only") tidak persis mencerminkan dashboard.
-  Belum diverifikasi: Vercel Web Analytics (S13 memintanya; event klik
-  custom tetap S20).
+  Browser Web Analytics **terpasang & terverifikasi 2026-10-30**:
+  `@vercel/analytics` + `<Analytics />` di `main.jsx` (`fe@bea6084`),
+  pageview `/tempat/:venueId` muncul di dashboard. Event klik custom tetap
+  S20.
 - [ ] **S14 — Input data** (F, timebox 60 menit). Balasan outreach →
   `be/data/offerings.json` dengan `lastVerified` hanya kalau beneran
   dikonfirmasi; koordinat manual untuk venue sisa; `go test` hijau;

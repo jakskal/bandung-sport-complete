@@ -66,7 +66,8 @@ React sekaligus punya portofolio full-stack live.
   ter-set di project Vercel), `<title>`+meta live identik dengan build HEAD.
   **Gerbang HP sudah lolos** (founder tes refresh dari HP = oke,
   2026-10-29) -> S8 dan S13 dicentang di `plan-v3-delta.md` § 2.
-  Sisa terbuka: Vercel Web Analytics belum dicek. `ALLOWED_ORIGINS` yang
+  Sisa terbuka: tidak ada (Vercel Web Analytics terpasang `fe@bea6084`,
+  pageview sudah terlihat di dashboard 2026-10-30). `ALLOWED_ORIGINS` yang
   masih ikut localhost DIBIARKAN atas keputusan founder -- jangan ditawarkan
   untuk dibereskan lagi.
 - **Gerbang S12 belum lulus:** tes 5 detik baru 1 responden, jawabannya
@@ -87,8 +88,9 @@ React sekaligus punya portofolio full-stack live.
    - `ALLOWED_ORIGINS` production yang masih ikut `http://localhost:5173`
      DIBIARKAN. Bukan utang, jangan "diberesin". `be/README.md` § Deploy
      memang tidak persis cocok dengan dashboard -- itu diketahui & diterima.
-   - Yang masih benar-benar terbuka dari S13 cuma satu: Vercel Web
-     Analytics belum dicek terpasang di project FE.
+   - S13 sekarang TUNTAS semua: Web Analytics terpasang (`fe@bea6084`,
+     `@vercel/analytics` + `<Analytics />` di `main.jsx`), pageview muncul
+     di dashboard 2026-10-30. Jangan tawarkan memasangnya lagi.
 4. Baru S14 (input data dari outreach) dan S15 -- di S15 inilah tes 5 detik
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
    live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan

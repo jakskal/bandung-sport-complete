@@ -65,7 +65,8 @@ proyek = sisa hari setelah 75 menit wajib lamaran + latihan English.
   `https://bandung-sport-web.vercel.app` + BE
   `https://bandung-sport-be.vercel.app`. Keputusan founder:
   `ALLOWED_ORIGINS` production yang masih ikut `localhost:5173` **dibiarkan**
-  — jangan usulkan membereskannya lagi. Sisa: cek Vercel Web Analytics.
+  — jangan usulkan membereskannya lagi. Vercel Web Analytics sudah
+  terpasang (`fe@bea6084`).
   Sesi aktif berikutnya: **S14 (input data) & S15 (kirim ke orang)**.
 - **Wewenang AI (keputusan founder 2026-10-29):** update dokumen root
   (`plan.md`, `AGENTS.md`, `docs/**`) dan cross-check/verifikasi state
