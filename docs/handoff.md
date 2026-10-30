@@ -95,10 +95,15 @@ React sekaligus punya portofolio full-stack live.
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
    live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan
    founder menolak kata "harga" di header -- lihat docs/copy/header.md § 1).
-   Status S14 2026-10-30: koordinat 22/22 SELESAI (`be@b8f977b`,
-   `be@9cd3107`); bagian penawaran baru menunggu balasan vendor. Jangan isi
-   `lastVerified` tanpa konfirmasi. Lembang & Cimahi = "Bandung" (keputusan
-   founder), jangan diusulkan diganti.
+   Status S14 2026-10-30: (a) koordinat 22/22 SELESAI (`be@b8f977b`,
+   `be@9cd3107`); (b) 18 offering dari riset web masuk (`be@7cca157`, total
+   26 offering, 16/22 venue berharga; provenance di
+   `docs/data/harga-riset-2026-10-30.md`). Semua `lastVerified` = null
+   (scrape bukan verifikasi) -- JANGAN diisi tanpa konfirmasi vendor.
+   3 baris sengaja tidak dipetakan: DPC (sumber agregator), Sangkuriang 3
+   bulan & Urban Gym PT 12 sesi (formatPrice belum dukung sessionsPerPack
+   -> tercatat di plan.md § Nanti). S14 belum dicentang. Lembang & Cimahi =
+   "Bandung" (keputusan founder), jangan diusulkan diganti.
 
 ## JEBAKAN YANG PERLU DIINGAT
 - Founder sudah menolak arah copy ini (jangan diulang): "one stop",

@@ -280,6 +280,15 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — S14 bagian B sebagian terisi** (`be@7cca157`): 18
+  offering baru dari riset web (total 26 offering; venue berharga 8 → 16 dari
+  22), provenance di `docs/data/harga-riset-2026-10-30.md`. Semua
+  `lastVerified` = null (scrape ≠ verifikasi) → harga tampil tanpa badge
+  "Harga dicek". 3 baris dicoret saat review: DPC (sumber agregator, kutipan
+  terpotong), Sangkuriang 3 bulan & Urban Gym PT 12 sesi (akan tampil "/sesi"
+  padahal multi-sesi). Live terverifikasi: `/healthz` offerings 26, 16 venue
+  punya `priceFrom`. Belum dicentang: menunggu konfirmasi vendor untuk
+  `lastVerified` (dan status Eldorado).
 - **Sesi 2026-10-30 — S14 bagian A SELESAI: koordinat 22/22.** Semua venue
   punya `lat`/`lng` (`be@b8f977b` 10 venue dari link Google Maps founder,
   `be@9cd3107` Oasis Siliwangi setelah dipastikan sama dengan pin "Siliwangi
@@ -291,7 +300,12 @@ Keputusan kunci:
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 
-- (kosong — tool AI: catat ide baru di sini, satu baris per ide)
+- `formatPrice` (FE) belum menampilkan `sessionsPerPack`: paket multi-sesi
+  tampil "/sesi" padahal harganya total paket. Setelah diperbaiki, masukkan
+  lagi Urban Gym PT 12 sesi (700rb) & Sangkuriang 3 bulan (630rb) — dua baris
+  ini sengaja dicoret dari data S14.
+- Enum `priceUnit` belum punya satuan `per-session` (court padel "per sesi")
+  dan `quarterly` (paket 3 bulan); sekarang dipaksa `per-session-pack`.
 
 ## Aturan main (mencegah kegagalan yang lalu)
 

@@ -255,8 +255,16 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   redeploy BE. *Selesai kalau:* `go test ./...` hijau, data live.
   **(a) Koordinat SELESAI 2026-10-30: 22/22 venue punya lat/lng**
   (`be@b8f977b` 10 venue + `be@9cd3107` Oasis; live terverifikasi lewat
-  `/api/venues`). **(b) Penawaran baru masih menunggu balasan vendor** —
-  jangan isi `lastVerified` tanpa konfirmasi nyata. Keputusan founder:
+  `/api/venues`). **(b) Sebagian terisi 2026-10-30: 18 offering baru dari riset web**
+  (`be@7cca157`, total 26 offering; venue berharga 8 → 16 dari 22).
+  Provenance (URL + kutipan + confidence) di
+  `docs/data/harga-riset-2026-10-30.md`. Semua `lastVerified` = null
+  (scrape ≠ verifikasi) — FE menampilkan harga tanpa badge "Harga dicek".
+  3 baris dicoret saat review: DPC (sumber agregator, kutipan terpotong),
+  Sangkuriang 3 bulan & Urban Gym PT 12 sesi (akan tampil "/sesi" padahal
+  multi-sesi → salah 3×/12×). **Masih terbuka:** konfirmasi vendor untuk
+  mengisi `lastVerified`; Eldorado menunggu status kolam (IG resmi memuat
+  "Informasi PENUTUPAN"). Keputusan founder:
   Lembang & Cimahi tetap dihitung "Bandung" untuk field `area`
   (validator tidak membatasi `area`, batas koordinat −7.2…−6.7 /
   107.4…107.9 sudah mencakup keduanya).
