@@ -368,7 +368,8 @@ baru kalau payload >200 KB.
   "tier": "Sedang",                 // null = "Harga belum dicek"
   "priceFrom": {                    // penawaran public termurah, atau null
     "priceMin": 500000, "priceMax": 2500000,
-    "priceUnit": "monthly", "priceVisibility": "public" },
+    "priceUnit": "monthly", "priceVisibility": "public",
+    "sessionsPerPack": null },      // >1 hanya untuk per-session-pack
   "offeringCount": 2, "lastVerified": "2026-10-12" }
 
 // VenueDetail = VenueSummary + kontak + offerings[]
