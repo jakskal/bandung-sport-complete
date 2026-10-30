@@ -3,16 +3,17 @@
 > Kriteria sesi: `docs/plan-v3-delta.md` § 2 S12 — tagline besar + sub 1
 > kalimat + CTA "Lihat semua tempat". *Selesai kalau:* 2 dari 3 orang bisa
 > jawab "ini buat apa" dalam 5 detik.
-> **Status: teks final dikunci 2026-10-29** (revisi subline & `<title>`;
-> versi 2026-10-28 diganti). Implementasi (`Header.jsx`, `<title>`) ditulis
-> founder, commit `fe@45d2b14`.
+> **Status: subline direvisi 2026-10-30** (opsi A, setelah tes 2 orang:
+> "ga ngerti setelah kita pilih itu lalu di apakan"). Tagline & `<title>`
+> tetap seperti yang dikunci 2026-10-29. Implementasi revisi `fe@8474a79`
+> (dikerjakan AI atas persetujuan founder).
 
 ## 1. Pasangan yang dipakai
 
 | Slot | Teks | Karakter | Batas |
 |---|---|---|---|
 | Tagline | **Bandung Sport — Direktori olahraga Bandung** | 42 | ≤60 ✅ |
-| Subline | **Kita bantu cari tempat olahraga — kamu tinggal pilih** | 52 | ≤110 ✅ |
+| Subline | **Kita bantu cari tempat olahraga — pilih satu, lalu chat pengelolanya** | 69 | ≤110 ✅ |
 | CTA | **Lihat semua tempat** | — | anchor ke list |
 
 Keputusan 2026-10-29 (founder), tiga revisi dari versi 2026-10-28:
@@ -118,7 +119,7 @@ daripada reaksi pada screenshot. Konsekuensi yang diterima: S12 tetap
 **belum dicentang**; kalau S15 menunjukkan orang tidak menangkap pembeda,
 yang direvisi adalah subline, bukan komponen atau tagline.
 
-### Usulan revisi subline (2026-10-30, BELUM final)
+### Revisi subline (2026-10-30) — **opsi A dipakai**
 
 Sasaran: menjawab "lalu di apakan" tanpa kata "harga". Batas ≤110 karakter,
 nada tetap datar (aturan § 3).
@@ -134,6 +135,17 @@ Catatan: memperpanjang subline jadi 2 baris di 390px kemungkinan besar
 malah memperlambat tangkapan pertama (#1 "list doang"). Kalau ragu antara A
 dan B, pilih **A** — "chat pengelolanya" adalah bagian yang selama ini tidak
 terlihat, sedangkan 3 venue tanpa WA tetap punya tombol kontak di detail.
+
+**Keputusan founder 2026-10-30: opsi A.** Diimplementasikan `fe@8474a79`
+(dikerjakan AI atas permintaan founder): teks subline diganti, `max-width`
+subline 34ch → 42ch supaya 69 karakter tetap 2 baris di layar 390px, dan
+baris "Tier: Belum dicek" di detail page dihapus (tier null = tidak ada
+band, bukan harga belum dicek).
+
+**Yang harus dicek setelah deploy:** tes ulang ke **1 orang baru** (jangan
+responden #1/#2 — mereka sudah tahu jawabannya), satu pertanyaan:
+"terus abis pilih, ngapain?" Lulus kalau jawabannya menyebut chat/WA ke
+tempatnya. Kalau lulus → S12 dicentang, lanjut kirim link ke 5 orang.
 
 ## 7. Catatan implementasi (buat founder)
 

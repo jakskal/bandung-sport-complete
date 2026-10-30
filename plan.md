@@ -280,6 +280,13 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — subline direvisi (opsi A)** (`fe@8474a79`):
+  "Kita bantu cari tempat olahraga — pilih satu, lalu chat pengelolanya"
+  (52 → 69 kar.), `max-width` subline 34ch → 42ch supaya tetap 2 baris di
+  390px, dan detail page berhenti mencetak "Tier: Belum dicek" saat tier
+  null. Alasan: #2 tes paham tier harga tapi tidak tahu langkah setelah
+  memilih — subline lama berakhir di "tinggal pilih". Berikutnya: tes
+  ulang ke 1 orang baru ("abis pilih, ngapain?"); lulus → S12 dicentang.
 - **Sesi 2026-10-30 — hasil tes 2 orang (S12/S15)**: #1 "oh list doang"
   (Q1 lulus, Q3 gagal), #2 paham **setelah membaca** — menyebut tier
   "murah–mahal" spontan (Q2 & Q3 lulus) tapi "ga ngerti setelah kita pilih
