@@ -280,6 +280,14 @@ Keputusan kunci:
   `@vercel/analytics` + `<Analytics />`); pageview sampai & terlihat di
   dashboard. Sesi aktif: **S14 (input data)
   → S15 (kirim ke orang)**. Lint+build+`go test` hijau.
+- **Sesi 2026-10-30 — S14 bagian A SELESAI: koordinat 22/22.** Semua venue
+  punya `lat`/`lng` (`be@b8f977b` 10 venue dari link Google Maps founder,
+  `be@9cd3107` Oasis Siliwangi setelah dipastikan sama dengan pin "Siliwangi
+  Swimming Pool"). Live terverifikasi: `/api/venues` → 22 venue, 22
+  berkoordinat. `go test` + `go vet` hijau. **S14 belum dicentang**: bagian B
+  (penawaran baru dari outreach) masih menunggu balasan vendor. Keputusan
+  founder: Lembang & Cimahi tetap dianggap "Bandung" untuk `area` — jangan
+  diusulkan diganti/dipindah.
 
 ## Nanti (ide yang sengaja ditunda — jangan dikerjakan)
 

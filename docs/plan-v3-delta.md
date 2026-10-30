@@ -253,6 +253,13 @@ centang kalau "selesai kalau" terpenuhi, lalu update § Status di
   `be/data/offerings.json` dengan `lastVerified` hanya kalau beneran
   dikonfirmasi; koordinat manual untuk venue sisa; `go test` hijau;
   redeploy BE. *Selesai kalau:* `go test ./...` hijau, data live.
+  **(a) Koordinat SELESAI 2026-10-30: 22/22 venue punya lat/lng**
+  (`be@b8f977b` 10 venue + `be@9cd3107` Oasis; live terverifikasi lewat
+  `/api/venues`). **(b) Penawaran baru masih menunggu balasan vendor** —
+  jangan isi `lastVerified` tanpa konfirmasi nyata. Keputusan founder:
+  Lembang & Cimahi tetap dihitung "Bandung" untuk field `area`
+  (validator tidak membatasi `area`, batas koordinat −7.2…−6.7 /
+  107.4…107.9 sudah mencakup keduanya).
 - [ ] **S15 — Kirim ke orang + README + CV** (F; A beri template pesan &
   README). Tes 5 detik ke 1 orang → perbaiki → kirim ke 5 teman (boleh
   sama dengan peserta concierge) dengan 1 pertanyaan. README kedua repo:

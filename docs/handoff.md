@@ -95,6 +95,10 @@ React sekaligus punya portofolio full-stack live.
    + pertanyaan "ini buat apa" dijalankan ke manusia sungguhan via link
    live. Kalau gagal, yang direvisi **subline** (tagline sudah dikunci, dan
    founder menolak kata "harga" di header -- lihat docs/copy/header.md § 1).
+   Status S14 2026-10-30: koordinat 22/22 SELESAI (`be@b8f977b`,
+   `be@9cd3107`); bagian penawaran baru menunggu balasan vendor. Jangan isi
+   `lastVerified` tanpa konfirmasi. Lembang & Cimahi = "Bandung" (keputusan
+   founder), jangan diusulkan diganti.
 
 ## JEBAKAN YANG PERLU DIINGAT
 - Founder sudah menolak arah copy ini (jangan diulang): "one stop",
