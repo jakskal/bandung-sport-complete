@@ -292,7 +292,7 @@ Keputusan kunci:
   "Harga dicek". 3 baris dicoret saat review: DPC (sumber agregator, kutipan
   terpotong), Sangkuriang 3 bulan & Urban Gym PT 12 sesi (akan tampil "/sesi"
   padahal multi-sesi). Live terverifikasi: `/healthz` offerings 26, 16 venue
-  punya `priceFrom`. Belum dicentang: menunggu konfirmasi vendor untuk
+  punya `priceFrom` (angka ini naik jadi 27/17 setelah fix di atas). Belum dicentang: menunggu konfirmasi vendor untuk
   `lastVerified` (dan status Eldorado).
 - **Sesi 2026-10-30 — S14 bagian A SELESAI: koordinat 22/22.** Semua venue
   punya `lat`/`lng` (`be@b8f977b` 10 venue dari link Google Maps founder,
